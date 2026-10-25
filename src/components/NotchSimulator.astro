@@ -6,10 +6,10 @@ const explanationsEn = translations.en.simulator.explanations;
 const explanationsId = translations.id.simulator.explanations;
 ---
 
-<section id="demo" class="py-16 md:py-24 relative overflow-hidden">
+<section id="demo" class="py-14 sm:py-20 md:py-28 relative overflow-hidden">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
     <!-- Header -->
-    <div class="text-center max-w-2xl mx-auto mb-10">
+    <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
       <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-white tracking-tight mb-2.5" data-en={tEn.title} data-id={tId.title}>
         {tEn.title}
       </h2>
@@ -286,7 +286,7 @@ const explanationsId = translations.id.simulator.explanations;
     </div>
 
     <!-- Mode Selector Tabs under Laptop (Clean SVG Icons - Zero Emojis) -->
-    <div class="mt-8 flex flex-wrap items-center justify-center gap-2">
+    <div class="mt-6 sm:mt-8 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 px-1 max-w-xl mx-auto">
       <!-- Idle Button -->
       <button
         type="button"
@@ -349,7 +349,7 @@ const explanationsId = translations.id.simulator.explanations;
     </div>
 
     <!-- Dynamic Explanation Area (Under Mode Buttons) -->
-    <div class="mt-12 pt-8 border-t border-white/[0.08] max-w-2xl mx-auto text-center">
+    <div class="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-white/[0.08] max-w-2xl mx-auto text-center px-2 sm:px-0">
       <span id="sim-exp-index" class="text-xs font-mono text-neutral-500 uppercase tracking-widest block mb-2">
         01 / 06 — RESTING
       </span>
@@ -388,7 +388,8 @@ const explanationsId = translations.id.simulator.explanations;
       const laptop = document.getElementById('laptop');
       if (!laptop) return;
       const w = laptop.clientWidth;
-      const u = Math.max(0.55, Math.min(1.25, (w - 30) / 570));
+      // Allow scale down to 0.44 on narrow screens so notch (530px * 0.44 = 233px) easily fits even 280px viewports
+      const u = Math.max(0.44, Math.min(1.25, (w - 20) / 540));
       document.documentElement.style.setProperty('--u', u.toFixed(3));
     }
     fitLaptop();

@@ -279,10 +279,10 @@ body {
 .sim-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.38rem 0.95rem;
+  gap: 0.38rem;
+  padding: 0.3rem 0.72rem;
   border-radius: 9999px;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   line-height: 1rem;
   font-weight: 500;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -291,6 +291,15 @@ body {
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
   user-select: none;
+  white-space: nowrap;
+}
+
+@media (min-width: 640px) {
+  .sim-btn {
+    gap: 0.5rem;
+    padding: 0.38rem 0.95rem;
+    font-size: 0.75rem;
+  }
 }
 
 .sim-btn:hover {

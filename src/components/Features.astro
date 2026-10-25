@@ -24,21 +24,21 @@ const icons = [
 ];
 ---
 
-<section id="features" class="py-24 md:py-36 relative">
+<section id="features" class="py-16 sm:py-24 md:py-32 relative">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
     <!-- Header: Editorial Minimalist -->
-    <div class="max-w-2xl mb-16 sm:mb-20">
+    <div class="max-w-2xl mb-10 sm:mb-16 md:mb-20">
       <span class="block text-xs font-mono uppercase tracking-widest text-neutral-500 mb-3">Architecture & Engineering</span>
-      <h2 class="text-3xl sm:text-4xl md:text-5xl font-semibold text-white tracking-tight mb-4" data-en={tEn.title} data-id={tId.title}>
+      <h2 class="text-2xl sm:text-4xl md:text-5xl font-semibold text-white tracking-tight mb-3 sm:mb-4" data-en={tEn.title} data-id={tId.title}>
         {tEn.title}
       </h2>
-      <p class="text-base sm:text-lg text-neutral-400 leading-relaxed font-normal" data-en={tEn.subtitle} data-id={tId.subtitle}>
+      <p class="text-sm sm:text-base md:text-lg text-neutral-400 leading-relaxed font-normal" data-en={tEn.subtitle} data-id={tId.subtitle}>
         {tEn.subtitle}
       </p>
     </div>
 
     <!-- Editorial Index Grid (No Cards, Pure Typography) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10 sm:gap-y-12">
       {tEn.items.map((item, idx) => {
         const idItem = tId.items[idx];
         const num = String(idx + 1).padStart(2, '0');

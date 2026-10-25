@@ -4,10 +4,10 @@ const tEn = translations.en.downloadSec;
 const tId = translations.id.downloadSec;
 ---
 
-<section id="download" class="py-20 md:py-32 relative">
+<section id="download" class="py-16 sm:py-24 md:py-32 relative">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
     <!-- App Icon -->
-    <div class="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-6 relative">
+    <div class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 mx-auto mb-5 sm:mb-6 relative">
       <img
         src="/app-icon.png"
         alt="Notchify App Icon"
@@ -20,16 +20,16 @@ const tId = translations.id.downloadSec;
     <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-white tracking-tight mb-2.5" data-en={tEn.title} data-id={tId.title}>
       {tEn.title}
     </h2>
-    <p class="text-sm sm:text-base text-neutral-400 font-normal leading-relaxed max-w-xl mx-auto mb-10" data-en={tEn.subtitle} data-id={tId.subtitle}>
+    <p class="text-sm sm:text-base text-neutral-400 font-normal leading-relaxed max-w-xl mx-auto mb-8 sm:mb-10 px-2 sm:px-0" data-en={tEn.subtitle} data-id={tId.subtitle}>
       {tEn.subtitle}
     </p>
 
     <!-- Main Download Card -->
-    <div class="p-7 sm:p-10 rounded-2xl bg-white/[0.02] border border-white/[0.07] relative overflow-hidden mb-6">
+    <div class="p-5 sm:p-8 md:p-10 rounded-2xl bg-white/[0.02] border border-white/[0.07] relative overflow-hidden mb-6">
       <div class="flex flex-col items-center">
         <!-- Status Banner: In Development / Public Release -->
-        <div id="section-status-banner" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-mono text-amber-300 mb-5">
-          <span id="section-status-dot" class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+        <div id="section-status-banner" class="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-[11px] sm:text-xs font-mono text-amber-300 mb-5 max-w-full text-center">
+          <span id="section-status-dot" class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse flex-shrink-0"></span>
           <span id="section-status-text" data-en={tEn.statusDevBanner} data-id={tId.statusDevBanner}>
             {tEn.statusDevBanner}
           </span>
@@ -39,7 +39,7 @@ const tId = translations.id.downloadSec;
         <a
           id="section-download-btn"
           href="https://github.com/Kharisdestianmaulana-hub/notchify"
-          class="inline-flex items-center justify-center gap-2.5 w-full sm:w-auto px-7 py-3.5 rounded-full bg-white/[0.06] border border-white/10 text-neutral-400 font-medium text-sm transition-all cursor-not-allowed select-none mb-3"
+          class="inline-flex items-center justify-center gap-2.5 w-full sm:w-auto max-w-xs sm:max-w-none px-6 sm:px-7 py-3 sm:py-3.5 rounded-full bg-white/[0.06] border border-white/10 text-neutral-400 font-medium text-sm transition-all cursor-not-allowed select-none mb-3"
           aria-disabled="true"
         >
           <svg class="w-4 h-4 fill-current opacity-60" viewBox="0 0 24 24">

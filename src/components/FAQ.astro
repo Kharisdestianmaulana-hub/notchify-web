@@ -4,9 +4,9 @@ const tEn = translations.en.faq;
 const tId = translations.id.faq;
 ---
 
-<section id="faq" class="py-20 md:py-28 relative">
+<section id="faq" class="py-16 sm:py-24 md:py-32 relative">
   <div class="max-w-3xl mx-auto px-4 sm:px-6">
-    <div class="text-center max-w-2xl mx-auto mb-16">
+    <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-16">
       <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-white tracking-tight mb-2.5" data-en={tEn.title} data-id={tId.title}>
         {tEn.title}
       </h2>
@@ -20,7 +20,7 @@ const tId = translations.id.faq;
       {tEn.items.map((item, idx) => {
         const idItem = tId.items[idx];
         return (
-          <details class="group rounded-xl bg-white/[0.02] hover:bg-white/[0.03] border border-white/[0.07] hover:border-white/[0.14] open:border-white/20 open:bg-white/[0.03] p-5 sm:p-6 [&_summary::-webkit-details-marker]:hidden transition-all duration-200">
+          <details class="group rounded-xl bg-white/[0.02] hover:bg-white/[0.03] border border-white/[0.07] hover:border-white/[0.14] open:border-white/20 open:bg-white/[0.03] p-4 sm:p-6 [&_summary::-webkit-details-marker]:hidden transition-all duration-200">
             <summary class="flex items-center justify-between cursor-pointer select-none">
               <h3 class="text-[15px] sm:text-base font-semibold text-white/90 group-hover:text-white transition-colors pr-4 tracking-tight" data-en={item.q} data-id={idItem.q}>
                 {item.q}
