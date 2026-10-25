@@ -3,64 +3,114 @@ import { translations } from '../data/translations';
 const tEn = translations.en.features;
 const tId = translations.id.features;
 
-// Clean, precise monochrome SVG icons for each feature
-const icons = [
-  // 1. Fluid Spring Dynamics (Wave / Elastic motion)
-  `<svg class="w-5 h-5 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>`,
-  // 2. Automatic Fullscreen Evasion (Window / Screen expand)
-  `<svg class="w-5 h-5 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" /></svg>`,
-  // 3. Global Shortcut Access (Keyboard / Hotkey)
-  `<svg class="w-5 h-5 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 4v1m6 11h2m-6 0h-4v4m0-4v-4m0 4h4m-4-8h4V4m0 4h4V4M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>`,
-  // 4. Staging File Shelf (Tray / Drop target)
-  `<svg class="w-5 h-5 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" /></svg>`,
-  // 5. Synced Lyrics & Audio Control (Sound wave / Music)
-  `<svg class="w-5 h-5 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" /></svg>`,
-  // 6. Near-Zero Footprint (Microchip / Efficiency)
-  `<svg class="w-5 h-5 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" /></svg>`,
-  // 7. Dual Language Support (Translate / Globe)
-  `<svg class="w-5 h-5 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" /></svg>`,
-  // 8. Zero Remote Telemetry (Shield / Local only)
-  `<svg class="w-5 h-5 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>`,
+// Engineering-focused feature list with clean monochrome Apple-style aesthetics
+const engineeringFeatures = [
+  {
+    num: "01",
+    tag: "Physics Engine",
+    icon: `<svg class="w-5 h-5 text-white/90" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>`,
+    titleEn: tEn.items[0].title,
+    titleId: tId.items[0].title,
+    descEn: tEn.items[0].desc,
+    descId: tId.items[0].desc,
+  },
+  {
+    num: "02",
+    tag: "Screen Geometry",
+    icon: `<svg class="w-5 h-5 text-white/90" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" /></svg>`,
+    titleEn: tEn.items[1].title,
+    titleId: tId.items[1].title,
+    descEn: tEn.items[1].desc,
+    descId: tId.items[1].desc,
+  },
+  {
+    num: "03",
+    tag: "Global Hotkey",
+    icon: `<svg class="w-5 h-5 text-white/90" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 4v1m6 11h2m-6 0h-4v4m0-4v-4m0 4h4m-4-8h4V4m0 4h4V4M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>`,
+    titleEn: tEn.items[2].title,
+    titleId: tId.items[2].title,
+    descEn: tEn.items[2].desc,
+    descId: tId.items[2].desc,
+  },
+  {
+    num: "04",
+    tag: "AppKit & SwiftUI",
+    icon: `<svg class="w-5 h-5 text-white/90" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" /></svg>`,
+    titleEn: tEn.items[5].title,
+    titleId: tId.items[5].title,
+    descEn: tEn.items[5].desc,
+    descId: tId.items[5].desc,
+  },
+  {
+    num: "05",
+    tag: "Universal Binary",
+    icon: `<svg class="w-5 h-5 text-white/90" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>`,
+    titleEn: "Universal Architecture",
+    titleId: "Arsitektur Universal",
+    descEn: "Native execution on Apple Silicon (M1, M2, M3, M4) and Intel x86_64 processors with zero emulation lag.",
+    descId: "Berjalan native di Mac berbasis Apple Silicon (M1, M2, M3, M4) maupun prosesor Intel x86_64 tanpa emulasi.",
+  },
+  {
+    num: "06",
+    tag: "AirTight Privacy",
+    icon: `<svg class="w-5 h-5 text-white/90" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>`,
+    titleEn: tEn.items[7].title,
+    titleId: tId.items[7].title,
+    descEn: tEn.items[7].desc,
+    descId: tId.items[7].desc,
+  },
 ];
 ---
 
-<section id="features" class="py-16 sm:py-24 md:py-32 relative">
+<section id="features" class="py-20 sm:py-28 md:py-36 relative bg-void overflow-hidden">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
-    <!-- Header: Editorial Minimalist -->
-    <div class="max-w-2xl mb-10 sm:mb-16 md:mb-20">
-      <span class="block text-xs font-mono uppercase tracking-widest text-neutral-500 mb-3">Architecture & Engineering</span>
-      <h2 class="text-2xl sm:text-4xl md:text-5xl font-semibold text-white tracking-tight mb-3 sm:mb-4" data-en={tEn.title} data-id={tId.title}>
+    <!-- Header: Apple Editorial Typography -->
+    <div class="max-w-3xl mb-12 sm:mb-16 md:mb-20">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-[11px] sm:text-xs font-mono uppercase tracking-widest text-neutral-400 mb-4 sm:mb-5">
+        <span class="w-1.5 h-1.5 rounded-full bg-neutral-400"></span>
+        <span>Architecture & Engineering</span>
+      </div>
+      <h2 class="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-4 sm:mb-5 leading-[1.08]" data-en={tEn.title} data-id={tId.title}>
         {tEn.title}
       </h2>
-      <p class="text-sm sm:text-base md:text-lg text-neutral-400 leading-relaxed font-normal" data-en={tEn.subtitle} data-id={tId.subtitle}>
+      <p class="text-base sm:text-lg md:text-xl text-neutral-400 font-normal leading-relaxed max-w-2xl" data-en={tEn.subtitle} data-id={tId.subtitle}>
         {tEn.subtitle}
       </p>
     </div>
 
-    <!-- Editorial Index Grid (No Cards, Pure Typography) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10 sm:gap-y-12">
-      {tEn.items.map((item, idx) => {
-        const idItem = tId.items[idx];
-        const num = String(idx + 1).padStart(2, '0');
-        return (
-          <div class="pt-6 border-t border-white/[0.08] flex flex-col justify-between group">
-            <div>
-              <span class="block text-xs font-mono text-neutral-500 mb-4 tracking-wider group-hover:text-neutral-300 transition-colors">
-                {num}
+    <!-- Apple-grade Engineering Cards Grid (3 Columns) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+      {engineeringFeatures.map((feat) => (
+        <div class="rounded-3xl p-6 sm:p-7 bg-[#0a0a0d] border border-white/[0.08] hover:border-white/[0.18] transition-all duration-300 relative overflow-hidden flex flex-col justify-between group">
+          <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent pointer-events-none"></div>
+
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <div class="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center">
+                <Fragment set:html={feat.icon} />
+              </div>
+              <span class="text-[11px] font-mono text-neutral-500 uppercase tracking-wider">
+                {feat.num}
               </span>
-              <h3 class="text-base font-medium text-white mb-2.5 tracking-tight group-hover:text-neutral-100 transition-colors" data-en={item.title} data-id={idItem.title}>
-                {item.title}
-              </h3>
-              <p class="text-sm text-neutral-400 font-normal leading-relaxed" data-en={item.desc} data-id={idItem.desc}>
-                {item.desc}
-              </p>
             </div>
-            <div class="mt-6 pt-3 border-t border-white/[0.04] text-[11px] font-mono text-neutral-500">
-              <span data-en={item.tag} data-id={idItem.tag}>{item.tag}</span>
-            </div>
+
+            <span class="inline-block text-[11px] font-mono uppercase tracking-wider text-neutral-400 mb-2">
+              {feat.tag}
+            </span>
+            <h3 class="text-lg sm:text-xl font-semibold text-white tracking-tight mb-2 group-hover:text-white transition-colors" data-en={feat.titleEn} data-id={feat.titleId}>
+              {feat.titleEn}
+            </h3>
+            <p class="text-xs sm:text-sm text-neutral-400 font-normal leading-relaxed" data-en={feat.descEn} data-id={feat.descId}>
+              {feat.descEn}
+            </p>
           </div>
-        );
-      })}
+
+          <div class="mt-6 pt-3.5 border-t border-white/[0.04] flex items-center justify-between text-[11px] font-mono text-neutral-500">
+            <span>Native macOS</span>
+            <span class="text-neutral-400">SwiftUI / AppKit</span>
+          </div>
+        </div>
+      ))}
     </div>
   </div>
 </section>

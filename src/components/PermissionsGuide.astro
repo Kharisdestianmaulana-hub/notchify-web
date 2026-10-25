@@ -4,67 +4,125 @@ const tEn = translations.en.permissions;
 const tId = translations.id.permissions;
 ---
 
-<section id="permissions" class="py-16 sm:py-24 md:py-32 relative">
+<section id="permissions" class="py-20 sm:py-28 md:py-36 relative bg-void overflow-hidden">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
-    <div class="max-w-2xl mb-10 sm:mb-16 md:mb-20">
-      <span class="block text-xs font-mono uppercase tracking-widest text-neutral-500 mb-3">Transparency</span>
-      <h2 class="text-2xl sm:text-4xl md:text-5xl font-semibold text-white tracking-tight mb-3 sm:mb-4" data-en={tEn.title} data-id={tId.title}>
+    <!-- Header: Apple Editorial Typography -->
+    <div class="max-w-3xl mb-12 sm:mb-16 md:mb-20">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-[11px] sm:text-xs font-mono uppercase tracking-widest text-neutral-400 mb-4 sm:mb-5">
+        <span class="w-1.5 h-1.5 rounded-full bg-neutral-400"></span>
+        <span>Security & Privacy Architecture</span>
+      </div>
+      <h2 class="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-4 sm:mb-5 leading-[1.08]" data-en={tEn.title} data-id={tId.title}>
         {tEn.title}
       </h2>
-      <p class="text-sm sm:text-base md:text-lg text-neutral-400 font-normal leading-relaxed" data-en={tEn.subtitle} data-id={tId.subtitle}>
+      <p class="text-base sm:text-lg md:text-xl text-neutral-400 font-normal leading-relaxed max-w-2xl" data-en={tEn.subtitle} data-id={tId.subtitle}>
         {tEn.subtitle}
       </p>
     </div>
 
-    <!-- Editorial 2-Column Permissions (No Cards) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 mb-10 sm:mb-16">
-      <!-- Item 1: Accessibility -->
-      <div class="pt-6 border-t border-white/[0.08]">
-        <span class="block text-xs font-mono text-neutral-500 mb-4 tracking-wider">
-          01 / ACCESSIBILITY API
-        </span>
-        <h3 class="text-lg font-medium text-white mb-2.5 tracking-tight" data-en={tEn.accessibilityTitle} data-id={tId.accessibilityTitle}>
-          {tEn.accessibilityTitle}
-        </h3>
-        <p class="text-sm text-neutral-400 leading-relaxed font-normal mb-6" data-en={tEn.accessibilityDesc} data-id={tId.accessibilityDesc}>
-          {tEn.accessibilityDesc}
-        </p>
-        <span class="inline-block text-[11px] font-mono text-neutral-500">
-          Global hotkey listener only
-        </span>
+    <!-- 2 Apple Privacy Whitepaper Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 mb-6">
+      
+      <!-- Card 1: Accessibility API -->
+      <div class="rounded-3xl p-6 sm:p-8 bg-[#0a0a0d] border border-white/[0.08] hover:border-white/[0.18] transition-all duration-300 relative overflow-hidden flex flex-col justify-between group">
+        <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent pointer-events-none"></div>
+
+        <div>
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-white/90">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
+              </svg>
+            </div>
+            <span class="text-[11px] font-mono text-neutral-500 uppercase tracking-wider">01 / Scope</span>
+          </div>
+
+          <span class="inline-block text-[11px] font-mono uppercase tracking-wider text-neutral-400 mb-2">
+            macOS Accessibility API
+          </span>
+          <h3 class="text-xl font-semibold text-white tracking-tight mb-2.5" data-en={tEn.accessibilityTitle} data-id={tId.accessibilityTitle}>
+            {tEn.accessibilityTitle}
+          </h3>
+          <p class="text-sm text-neutral-400 leading-relaxed font-normal mb-6" data-en={tEn.accessibilityDesc} data-id={tId.accessibilityDesc}>
+            {tEn.accessibilityDesc}
+          </p>
+        </div>
+
+        <div class="pt-5 border-t border-white/[0.06] space-y-2 text-xs font-mono">
+          <div class="flex items-center gap-2 text-neutral-300">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+            <span>Used strictly for ⌘⇧N hotkey and hover bloom</span>
+          </div>
+          <div class="flex items-center gap-2 text-neutral-500">
+            <span class="w-1.5 h-1.5 rounded-full bg-neutral-600"></span>
+            <span>Keystrokes are never logged, recorded, or read</span>
+          </div>
+        </div>
       </div>
 
-      <!-- Item 2: Screen Recording -->
-      <div class="pt-6 border-t border-white/[0.08]">
-        <span class="block text-xs font-mono text-neutral-500 mb-4 tracking-wider">
-          02 / WINDOW GEOMETRY
-        </span>
-        <h3 class="text-lg font-medium text-white mb-2.5 tracking-tight" data-en={tEn.screenTitle} data-id={tId.screenTitle}>
-          {tEn.screenTitle}
-        </h3>
-        <p class="text-sm text-neutral-400 leading-relaxed font-normal mb-6" data-en={tEn.screenDesc} data-id={tId.screenDesc}>
-          {tEn.screenDesc}
-        </p>
-        <span class="inline-block text-[11px] font-mono text-neutral-500">
-          Pixels are never read or stored
-        </span>
+      <!-- Card 2: Screen Recording / Geometry -->
+      <div class="rounded-3xl p-6 sm:p-8 bg-[#0a0a0d] border border-white/[0.08] hover:border-white/[0.18] transition-all duration-300 relative overflow-hidden flex flex-col justify-between group">
+        <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent pointer-events-none"></div>
+
+        <div>
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-white/90">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+              </svg>
+            </div>
+            <span class="text-[11px] font-mono text-neutral-500 uppercase tracking-wider">02 / Scope</span>
+          </div>
+
+          <span class="inline-block text-[11px] font-mono uppercase tracking-wider text-neutral-400 mb-2">
+            Window Geometry Query
+          </span>
+          <h3 class="text-xl font-semibold text-white tracking-tight mb-2.5" data-en={tEn.screenTitle} data-id={tId.screenTitle}>
+            {tEn.screenTitle}
+          </h3>
+          <p class="text-sm text-neutral-400 leading-relaxed font-normal mb-6" data-en={tEn.screenDesc} data-id={tId.screenDesc}>
+            {tEn.screenDesc}
+          </p>
+        </div>
+
+        <div class="pt-5 border-t border-white/[0.06] space-y-2 text-xs font-mono">
+          <div class="flex items-center gap-2 text-neutral-300">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+            <span>Queries window frames to hide during movies & Keynote</span>
+          </div>
+          <div class="flex items-center gap-2 text-neutral-500">
+            <span class="w-1.5 h-1.5 rounded-full bg-neutral-600"></span>
+            <span>Pixels and screen buffers are never captured or saved</span>
+          </div>
+        </div>
       </div>
+
     </div>
 
-    <!-- Privacy Statement: Editorial Hairline Row -->
-    <div class="pt-8 border-t border-white/[0.08] flex flex-col md:flex-row md:items-center justify-between gap-6">
+    <!-- Apple Privacy Whitepaper Assurance Banner -->
+    <div class="rounded-3xl p-6 sm:p-7 bg-[#0a0a0d] border border-white/[0.08] relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent pointer-events-none"></div>
+
       <div class="max-w-xl">
-        <h4 class="text-base font-medium text-white mb-1.5 tracking-tight" data-en={tEn.privacyPromiseTitle} data-id={tId.privacyPromiseTitle}>
+        <h4 class="text-base font-medium text-white mb-1 tracking-tight" data-en={tEn.privacyPromiseTitle} data-id={tId.privacyPromiseTitle}>
           {tEn.privacyPromiseTitle}
         </h4>
-        <p class="text-sm text-neutral-400 leading-relaxed font-normal" data-en={tEn.privacyPromiseDesc} data-id={tId.privacyPromiseDesc}>
+        <p class="text-xs sm:text-sm text-neutral-400 leading-relaxed font-normal" data-en={tEn.privacyPromiseDesc} data-id={tId.privacyPromiseDesc}>
           {tEn.privacyPromiseDesc}
         </p>
       </div>
-      <div class="flex items-center gap-3 text-xs font-mono text-neutral-500 flex-shrink-0">
-        <span>Zero Analytics</span>
-        <span>•</span>
-        <span>100% Local</span>
+
+      <div class="flex flex-wrap items-center gap-3 text-xs font-mono text-neutral-400 flex-shrink-0">
+        <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/10">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          <span>100% Local</span>
+        </div>
+        <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/10">
+          <span>Zero Telemetry</span>
+        </div>
+        <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/10">
+          <span>Open Source</span>
+        </div>
       </div>
     </div>
   </div>
