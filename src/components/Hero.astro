@@ -1,0 +1,340 @@
+---
+import { translations } from '../data/translations';
+const tEn = translations.en.hero;
+const tId = translations.id.hero;
+---
+
+<section class="relative min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 pt-20 pb-16 overflow-hidden text-center">
+  <!-- Subtle neutral ambient glow -->
+  <div class="absolute inset-0 pointer-events-none -z-10 flex items-center justify-center">
+    <div class="w-[600px] h-[360px] bg-white/[0.02] rounded-full blur-3xl opacity-70"></div>
+  </div>
+
+  <div class="max-w-4xl mx-auto flex flex-col items-center">
+    <!-- Project Status Badge (Amber pulse for Development, Emerald for Release) -->
+    <div id="hero-status-pill" class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/10 text-[12px] font-mono font-medium text-neutral-300 mb-8 backdrop-blur-md">
+      <span id="hero-status-dot" class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+      <span id="hero-status-text" data-en={tEn.statusDev} data-id={tId.statusDev}>
+        {tEn.statusDev}
+      </span>
+      <span class="text-neutral-600">•</span>
+      <span data-en={tEn.badge} data-id={tId.badge}>{tEn.badge}</span>
+    </div>
+
+    <!-- Main Headline: Crisp, Human, Apple-grade Typography -->
+    <h1 class="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tight text-white leading-[1.05] mb-6">
+      <span data-en={tEn.title} data-id={tId.title}>{tEn.title}</span><br />
+      <span class="text-white/90" data-en={tEn.titleHighlight} data-id={tId.titleHighlight}>
+        {tEn.titleHighlight}
+      </span>
+    </h1>
+
+    <!-- Natural Lede Paragraph -->
+    <p class="max-w-2xl mx-auto text-base sm:text-xl text-mist/90 leading-relaxed font-normal mb-10" data-en={tEn.lede} data-id={tId.lede}>
+      {tEn.lede}
+    </p>
+
+    <!-- Clean Apple-grade CTAs (No Emojis) -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-8 w-full sm:w-auto">
+      <!-- Download Button (Inactive by default in development, activates automatically when GitHub release is published) -->
+      <a
+        id="hero-download-btn"
+        href="#download"
+        class="inline-flex items-center justify-center gap-2.5 w-full sm:w-auto px-7 py-3.5 rounded-full bg-white/[0.07] border border-white/10 text-neutral-400 font-medium text-sm transition-all cursor-not-allowed select-none"
+        aria-disabled="true"
+        title="Notchify masih dalam tahap pengembangan. File .dmg akan otomatis aktif saat rilis publik."
+      >
+        <svg class="w-4 h-4 fill-current opacity-60" viewBox="0 0 24 24">
+          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.84c.62-.75 1.04-1.8 0.92-2.84-.9.04-1.99.6-2.64 1.35-.58.67-.99 1.74-.86 2.76.99.08 2.02-.52 2.58-1.27z"/>
+        </svg>
+        <span id="hero-download-text" data-en={tEn.downloadDisabled} data-id={tId.downloadDisabled}>
+          {tEn.downloadDisabled}
+        </span>
+        <span id="hero-version-tag" class="text-[11px] px-2 py-0.5 rounded-full bg-white/[0.06] text-amber-300 font-mono font-medium border border-amber-400/20">
+          {tEn.devVersionTag}
+        </span>
+      </a>
+
+      <!-- GitHub Link Button -->
+      <a
+        href="https://github.com/Kharisdestianmaulana-hub/notchify"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3.5 rounded-full bg-white/[0.04] border border-white/10 text-white/90 font-medium text-sm hover:bg-white/[0.08] hover:text-white transition-all"
+      >
+        <svg class="w-4 h-4 fill-current text-white/70" viewBox="0 0 24 24">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+        </svg>
+        <span data-en={tEn.githubBtn} data-id={tId.githubBtn}>{tEn.githubBtn}</span>
+      </a>
+    </div>
+
+    <!-- Clean Metadata Row -->
+    <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-mist/80 font-normal">
+      <span data-en={tEn.versionInfo} data-id={tId.versionInfo}>{tEn.versionInfo}</span>
+      <span class="w-1 h-1 rounded-full bg-white/20"></span>
+      <span data-en={tEn.universalBadge} data-id={tId.universalBadge}>{tEn.universalBadge}</span>
+      <span class="w-1 h-1 rounded-full bg-white/20"></span>
+      <span id="live-dl-stat">
+        <span id="github-dl-count">0+</span> <span data-en={tEn.downloadsCount} data-id={tId.downloadsCount}>{tEn.downloadsCount}</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- Scroll Prompt -->
+  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-mist/40 hover:text-mist/70 transition-colors cursor-pointer">
+    <span class="text-[10px] uppercase tracking-widest font-semibold">Interactive Demo</span>
+    <svg class="w-4 h-4 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+    </svg>
+  </div>
+</section>
+
+<!-- Client Script for Live GitHub Releases Fetcher & State Synchronization -->
+<script is:inline>
+  (function() {
+    const REPO = 'Kharisdestianmaulana-hub/notchify';
+    const API_URL = `https://api.github.com/repos/${REPO}/releases`;
+
+    // Global Release State
+    let releaseState = {
+      isReleased: false,
+      tag: 'v0.1.0-dev',
+      dmgUrl: null,
+      downloadCount: 0,
+      releasePageUrl: `https://github.com/${REPO}/releases`
+    };
+
+    function updateDOM() {
+      const lang = document.documentElement.getAttribute('data-lang') || 'en';
+      const isId = lang === 'id';
+
+      // 1. Hero Elements
+      const heroStatusDot = document.getElementById('hero-status-dot');
+      const heroStatusText = document.getElementById('hero-status-text');
+      const heroBtn = document.getElementById('hero-download-btn');
+      const heroBtnText = document.getElementById('hero-download-text');
+      const heroVersionTag = document.getElementById('hero-version-tag');
+
+      // 2. Navbar Elements
+      const navBtn = document.getElementById('nav-download-btn');
+      const navDot = document.getElementById('nav-download-dot');
+      const navText = document.getElementById('nav-download-text');
+      const navVersionTag = document.getElementById('nav-version-tag');
+
+      // 3. Section Elements
+      const secBanner = document.getElementById('section-status-banner');
+      const secDot = document.getElementById('section-status-dot');
+      const secStatusText = document.getElementById('section-status-text');
+      const secBtn = document.getElementById('section-download-btn');
+      const secBtnText = document.getElementById('section-download-text');
+      const secVersionTag = document.getElementById('section-version-tag');
+      const secNotice = document.getElementById('section-ready-notice');
+
+      const countEl = document.getElementById('github-dl-count');
+      if (countEl && releaseState.downloadCount > 0) {
+        countEl.textContent = releaseState.downloadCount.toLocaleString();
+      }
+
+      if (releaseState.isReleased) {
+        // --- RELEASED STATE ---
+        const tag = releaseState.tag;
+
+        // Hero Status Badge
+        if (heroStatusDot) {
+          heroStatusDot.className = 'w-1.5 h-1.5 rounded-full bg-emerald-400';
+        }
+        if (heroStatusText) {
+          heroStatusText.textContent = isId ? `Rilis Publik ${tag} Tersedia` : `Public Release ${tag} Available`;
+        }
+
+        // Hero Button (Activate)
+        if (heroBtn) {
+          heroBtn.className = 'btn-glow inline-flex items-center justify-center gap-2.5 w-full sm:w-auto px-7 py-3.5 rounded-full bg-white text-void font-semibold text-sm shadow-md hover:bg-neutral-100 transition-all cursor-pointer';
+          heroBtn.setAttribute('href', releaseState.dmgUrl || releaseState.releasePageUrl);
+          heroBtn.removeAttribute('aria-disabled');
+          heroBtn.setAttribute('title', isId ? `Unduh Notchify ${tag} (.dmg)` : `Download Notchify ${tag} (.dmg)`);
+          const icon = heroBtn.querySelector('svg');
+          if (icon) icon.className = 'w-4 h-4 fill-current text-void';
+        }
+        if (heroBtnText) {
+          heroBtnText.textContent = isId ? 'Unduh untuk Mac' : 'Download for Mac';
+        }
+        if (heroVersionTag) {
+          heroVersionTag.className = 'text-[11px] px-2 py-0.5 rounded-full bg-black/10 text-void font-mono font-bold border-0';
+          heroVersionTag.textContent = tag;
+        }
+
+        // Navbar Button (Activate)
+        if (navBtn) {
+          navBtn.className = 'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-white text-neutral-950 hover:bg-neutral-200 transition-colors shadow-sm';
+          if (releaseState.dmgUrl) navBtn.setAttribute('href', releaseState.dmgUrl);
+        }
+        if (navDot) navDot.className = 'w-1.5 h-1.5 rounded-full bg-emerald-500';
+        if (navText) navText.textContent = isId ? 'Unduh .dmg' : 'Download .dmg';
+        if (navVersionTag) {
+          navVersionTag.className = 'text-[10px] font-mono text-neutral-600 font-semibold';
+          navVersionTag.textContent = tag;
+        }
+
+        // Section Banner & Button (Activate)
+        if (secBanner) {
+          secBanner.className = 'inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs font-mono text-emerald-300 mb-5';
+        }
+        if (secDot) secDot.className = 'w-1.5 h-1.5 rounded-full bg-emerald-400';
+        if (secStatusText) {
+          secStatusText.textContent = isId ? `Status: Rilis Publik ${tag} Tersedia` : `Status: Public Release ${tag} Available`;
+        }
+        if (secBtn) {
+          secBtn.className = 'inline-flex items-center justify-center gap-2.5 w-full sm:w-auto px-7 py-3.5 rounded-full bg-white text-neutral-950 font-medium text-sm hover:bg-neutral-200 transition-all shadow-md mb-3 cursor-pointer';
+          secBtn.setAttribute('href', releaseState.dmgUrl || releaseState.releasePageUrl);
+          secBtn.removeAttribute('aria-disabled');
+          const icon = secBtn.querySelector('svg');
+          if (icon) icon.className = 'w-4 h-4 fill-current text-neutral-950';
+        }
+        if (secBtnText) {
+          secBtnText.textContent = isId ? 'Unduh untuk Mac' : 'Download for Mac';
+        }
+        if (secVersionTag) {
+          secVersionTag.className = 'text-[11px] px-2 py-0.5 rounded-full bg-neutral-900/10 font-mono font-medium text-neutral-900 border-0';
+          secVersionTag.textContent = '.dmg';
+        }
+        if (secNotice) {
+          secNotice.textContent = isId ? 'Tombol unduh terhubung langsung ke berkas rilis resmi GitHub.' : 'Download button connects directly to official GitHub Release builds.';
+        }
+      } else {
+        // --- DEVELOPMENT / UNRELEASED STATE ---
+        // Hero Status Badge
+        if (heroStatusDot) {
+          heroStatusDot.className = 'w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse';
+        }
+        if (heroStatusText) {
+          heroStatusText.textContent = isId ? 'Status: Dalam Pengembangan' : 'Status: In Development';
+        }
+
+        // Hero Button (Disabled)
+        if (heroBtn) {
+          heroBtn.className = 'inline-flex items-center justify-center gap-2.5 w-full sm:w-auto px-7 py-3.5 rounded-full bg-white/[0.07] border border-white/10 text-neutral-400 font-medium text-sm transition-all cursor-not-allowed select-none';
+          heroBtn.setAttribute('href', '#download');
+          heroBtn.setAttribute('aria-disabled', 'true');
+          heroBtn.setAttribute('title', isId ? 'Notchify masih dalam tahap pengembangan. File .dmg akan otomatis aktif saat rilis publik.' : 'Notchify is currently under development. The .dmg installer will be automatically downloadable here once released.');
+          const icon = heroBtn.querySelector('svg');
+          if (icon) icon.className = 'w-4 h-4 fill-current opacity-60';
+        }
+        if (heroBtnText) {
+          heroBtnText.textContent = isId ? 'Installer Dalam Pengembangan' : 'Installer in Development';
+        }
+        if (heroVersionTag) {
+          heroVersionTag.className = 'text-[11px] px-2 py-0.5 rounded-full bg-white/[0.06] text-amber-300 font-mono font-medium border border-amber-400/20';
+          heroVersionTag.textContent = 'v0.1.0 (Dev)';
+        }
+
+        // Navbar Button (Disabled indicator)
+        if (navBtn) {
+          navBtn.className = 'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-white/[0.08] text-neutral-300 border border-white/10 hover:bg-white/15 transition-all shadow-sm';
+          navBtn.setAttribute('href', '#download');
+        }
+        if (navDot) navDot.className = 'w-1.5 h-1.5 rounded-full bg-amber-400';
+        if (navText) navText.textContent = isId ? 'Unduh (Dev)' : 'Download (Dev)';
+        if (navVersionTag) {
+          navVersionTag.className = 'text-[10px] font-mono text-amber-300/80';
+          navVersionTag.textContent = 'Dev';
+        }
+
+        // Section Banner & Button (Disabled)
+        if (secBanner) {
+          secBanner.className = 'inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-mono text-amber-300 mb-5';
+        }
+        if (secDot) secDot.className = 'w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse';
+        if (secStatusText) {
+          secStatusText.textContent = isId ? 'Status: Dalam Pengembangan — Berkas installer .dmg belum dirilis ke publik' : 'Status: In Development — Public .dmg installer has not been released yet';
+        }
+        if (secBtn) {
+          secBtn.className = 'inline-flex items-center justify-center gap-2.5 w-full sm:w-auto px-7 py-3.5 rounded-full bg-white/[0.06] border border-white/10 text-neutral-400 font-medium text-sm transition-all cursor-not-allowed select-none mb-3';
+          secBtn.setAttribute('href', '#download');
+          secBtn.setAttribute('aria-disabled', 'true');
+          const icon = secBtn.querySelector('svg');
+          if (icon) icon.className = 'w-4 h-4 fill-current opacity-60';
+        }
+        if (secBtnText) {
+          secBtnText.textContent = isId ? 'Installer Dalam Pengembangan' : 'Installer in Development';
+        }
+        if (secVersionTag) {
+          secVersionTag.className = 'text-[11px] px-2 py-0.5 rounded-full bg-white/[0.06] font-mono font-medium text-amber-300 border border-amber-400/20';
+          secVersionTag.textContent = isId ? 'Segera Hadir' : 'Coming Soon';
+        }
+        if (secNotice) {
+          secNotice.textContent = isId ? 'Notchify saat ini masih dalam tahap pengembangan aktif. Berkas installer .dmg akan otomatis dapat diunduh di sini segera setelah rilis pertama di GitHub dipublikasikan.' : 'Notchify is currently under active development. The .dmg installer will be automatically downloadable here once the first GitHub Release is published.';
+        }
+      }
+    }
+
+    // Fetch GitHub Releases API
+    fetch(API_URL)
+      .then(res => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
+      .then(releases => {
+        if (!Array.isArray(releases) || releases.length === 0) {
+          // No releases published yet -> Stay in development state
+          return;
+        }
+
+        // Find latest published (non-draft) release with a .dmg asset
+        let validRelease = null;
+        let validDmgAsset = null;
+        let totalDownloads = 0;
+
+        for (const rel of releases) {
+          if (rel.draft) continue;
+          if (rel.assets && Array.isArray(rel.assets)) {
+            for (const asset of rel.assets) {
+              totalDownloads += (asset.download_count || 0);
+              if (!validDmgAsset && asset.name && asset.name.toLowerCase().endsWith('.dmg')) {
+                validDmgAsset = asset;
+                validRelease = rel;
+              }
+            }
+          }
+        }
+
+        if (validRelease && validDmgAsset) {
+          releaseState.isReleased = true;
+          releaseState.tag = validRelease.tag_name || 'v1.0.0';
+          releaseState.dmgUrl = validDmgAsset.browser_download_url;
+          releaseState.releasePageUrl = validRelease.html_url;
+          releaseState.downloadCount = totalDownloads;
+          updateDOM();
+        }
+      })
+      .catch(err => {
+        // Network error / rate limit / 404: stay safe in Development state
+        console.log('GitHub releases fetch: Project remains in Development state.', err);
+      });
+
+    // Language switch listener
+    window.addEventListener('langchange', updateDOM);
+
+    // Initial render
+    updateDOM();
+
+    // Testing hooks for browser console preview
+    window.__previewReleaseMode = function(testTag = 'v1.0.0', testDmgUrl = 'https://github.com/Kharisdestianmaulana-hub/notchify/releases/latest/download/Notchify.dmg') {
+      releaseState.isReleased = true;
+      releaseState.tag = testTag;
+      releaseState.dmgUrl = testDmgUrl;
+      releaseState.downloadCount = 142;
+      updateDOM();
+      console.log(`%c[Notchify] Switched to Public Release Preview mode (${testTag})!`, 'color: #30D158; font-weight: bold;');
+    };
+
+    window.__previewDevMode = function() {
+      releaseState.isReleased = false;
+      releaseState.tag = 'v0.1.0-dev';
+      releaseState.dmgUrl = null;
+      updateDOM();
+      console.log('%c[Notchify] Switched to Development mode!', 'color: #FF9F0A; font-weight: bold;');
+    };
+  })();
+</script>

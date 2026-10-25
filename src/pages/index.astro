@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import NotchSimulator from '../components/NotchSimulator.astro';
+import Features from '../components/Features.astro';
+import MoreUtilities from '../components/MoreUtilities.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import PermissionsGuide from '../components/PermissionsGuide.astro';
+import DownloadSection from '../components/DownloadSection.astro';
+import FAQ from '../components/FAQ.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Notchify — Bring the Dynamic Island experience to any Mac"
+  description="Notchify is an interactive, native macOS utility floating at the top of your screen. Controls your music, clipboard, file shelf, Pomodoro timer, and system stats."
+>
+  <Navbar />
+  <main>
+    <Hero />
+    <NotchSimulator />
+    <MoreUtilities />
+    <Features />
+    <HowItWorks />
+    <PermissionsGuide />
+    <DownloadSection />
+    <FAQ />
+  </main>
+  <Footer />
+</Layout>

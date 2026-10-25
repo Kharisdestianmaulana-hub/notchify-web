@@ -1,0 +1,317 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --void: #030408;
+  --panel: #0b0d14;
+  --panel-subtle: #111420;
+  --ink: #f0f3fa;
+  --mist: #858d9d;
+  --line: rgba(255, 255, 255, 0.08);
+  --apple-blue: #0a84ff;
+  --apple-green: #30d158;
+  --spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --u: 1.25;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--void);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  font-family: "Geist", -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, sans-serif;
+  letter-spacing: -0.012em;
+}
+
+/* ===== Laptop Frame & High-Performance macOS Wallpaper ===== */
+.laptop {
+  position: relative;
+  margin-inline: auto;
+  overflow: hidden;
+  height: calc(var(--u) * 260px + 30px);
+  -webkit-mask: linear-gradient(to bottom, #000 78%, transparent 100%);
+          mask: linear-gradient(to bottom, #000 78%, transparent 100%);
+  contain: layout paint;
+}
+
+.lid {
+  position: absolute;
+  left: 50%;
+  top: 20px;
+  transform: translateX(-50%);
+  width: calc(var(--u) * 1180px);
+  height: 900px;
+  border-radius: calc(var(--u) * 24px) calc(var(--u) * 24px) 0 0;
+  background: linear-gradient(#3a3d45, #24262c 14px);
+  padding: 2px;
+}
+
+.bezel {
+  position: absolute;
+  inset: 2px;
+  border-radius: inherit;
+  background: #050506;
+  padding: calc(var(--u) * 9px);
+}
+
+.cam {
+  position: absolute;
+  top: calc(var(--u) * 3.3px);
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  margin-left: -2.5px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, #2b3a55, #0b0f18);
+  z-index: 35;
+  box-shadow: 0 0 2px rgba(255,255,255,0.2);
+}
+
+.screen {
+  position: absolute;
+  inset: calc(var(--u) * 9px);
+  bottom: 0;
+  overflow: hidden;
+  border-radius: calc(var(--u) * 15px) calc(var(--u) * 15px) 0 0;
+  background: #080a12;
+}
+
+/* High-performance macOS Dark Wallpaper (zero lag, no heavy blurred DOM nodes) */
+.mac-wallpaper {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.7) 0%, rgba(200, 218, 255, 0.45) 20%, transparent 55%),
+    radial-gradient(ellipse at 25% 45%, rgba(10, 132, 255, 0.35) 0%, transparent 60%),
+    radial-gradient(ellipse at 75% 40%, rgba(191, 90, 242, 0.28) 0%, transparent 60%),
+    linear-gradient(180deg, #d3e2fd 0%, #8baaf8 28%, #364fa5 62%, #10152a 100%);
+  contain: strict;
+}
+
+/* ===== Real Notchify Notch Container (Optimized 60/120fps) ===== */
+.mn-holder {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) scale(var(--u));
+  transform-origin: top center;
+  z-index: 30;
+  contain: layout;
+}
+
+.mn {
+  --w: 165px;
+  --h: 30px;
+  --r: 15px;
+  --e: 12px;
+  position: relative;
+  width: var(--w);
+  height: var(--h);
+  transform-origin: 50% 0;
+  background: #000;
+  border-radius: 0 0 var(--r) var(--r);
+  transition: width 0.36s var(--spring), height 0.36s var(--spring), border-radius 0.28s ease;
+  font-family: var(--ui);
+  color: #fff;
+  font-size: 13px;
+  line-height: 1;
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.95);
+  will-change: width, height, border-radius;
+  transform: translateZ(0);
+}
+
+/* Curved ears that seamlessly blend with top bezel */
+.mn::before, .mn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: var(--e);
+  height: var(--e);
+  transition: width 0.32s, height 0.32s;
+  pointer-events: none;
+}
+
+.mn::before {
+  right: 100%;
+  background: radial-gradient(circle at 0 100%, transparent calc(var(--e) - 0.5px), #000 var(--e));
+}
+
+.mn::after {
+  left: 100%;
+  background: radial-gradient(circle at 100% 100%, transparent calc(var(--e) - 0.5px), #000 var(--e));
+}
+
+/* Dimensions per state */
+.mn[data-s="idle"] {
+  --w: 165px;
+  --h: 30px;
+  --r: 15px;
+  --e: 12px;
+}
+
+.mn[data-s="music"] {
+  --w: 530px;
+  --h: 150px;
+  --r: 24px;
+  --e: 18px;
+}
+
+.mn[data-s="clipboard"],
+.mn[data-s="shelf"],
+.mn[data-s="pomodoro"],
+.mn[data-s="system"],
+.mn[data-s="calculator"],
+.mn[data-s="weather"],
+.mn[data-s="agenda"],
+.mn[data-s="mirror"],
+.mn[data-s="notes"],
+.mn[data-s="network"] {
+  --w: 520px;
+  --h: 154px;
+  --r: 24px;
+  --e: 18px;
+}
+
+/* Smooth layer visibility */
+.ly {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.22s ease;
+  pointer-events: none;
+}
+
+.mn[data-s="idle"] .l-idle,
+.mn[data-s="music"] .l-music,
+.mn[data-s="clipboard"] .l-clipboard,
+.mn[data-s="shelf"] .l-shelf,
+.mn[data-s="pomodoro"] .l-pomodoro,
+.mn[data-s="system"] .l-system,
+.mn[data-s="calculator"] .l-calculator,
+.mn[data-s="weather"] .l-weather,
+.mn[data-s="agenda"] .l-agenda,
+.mn[data-s="mirror"] .l-mirror,
+.mn[data-s="notes"] .l-notes,
+.mn[data-s="network"] .l-network {
+  opacity: 1;
+  transition: opacity 0.28s ease 0.12s;
+  pointer-events: auto;
+}
+
+.notch-topbar,
+.notch-dots,
+.notch-chevrons {
+  transition: opacity 0.25s ease 0.1s;
+}
+
+.mn[data-s="idle"] .notch-topbar,
+.mn[data-s="idle"] .notch-dots,
+.mn[data-s="idle"] .notch-chevrons {
+  opacity: 0 !important;
+  pointer-events: none;
+}
+
+/* Sleeping Mascot Eyes (Image 1) */
+.sleeping-eyes {
+  display: inline-flex;
+  gap: 3px;
+  align-items: center;
+}
+
+.sleeping-eye {
+  width: 5px;
+  height: 3px;
+  border-bottom: 1.8px solid #f59e0b;
+  border-radius: 0 0 50% 50%;
+  filter: drop-shadow(0 0 3px rgba(245, 158, 11, 0.7));
+}
+
+/* Blinking Mascot Eyes */
+.blink-eye {
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 4px 1px rgba(255, 255, 255, 0.85);
+  animation: blink 4.2s infinite;
+}
+
+@keyframes blink {
+  0%, 92%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.1); }
+}
+
+/* Clean Button Glow */
+.btn-glow {
+  position: relative;
+  transition: transform 0.2s var(--spring), box-shadow 0.2s ease;
+}
+
+.btn-glow::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(10, 132, 255, 0.7), rgba(191, 90, 242, 0.4), rgba(48, 209, 88, 0.7));
+  z-index: -1;
+  opacity: 0.65;
+  filter: blur(10px);
+  transition: opacity 0.25s ease;
+}
+
+.btn-glow:hover {
+  transform: translateY(-1.5px);
+}
+
+/* Simulator Control Buttons - Crisp Solid White when Active */
+.sim-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.38rem 0.95rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  color: #a3a3a3;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  user-select: none;
+}
+
+.sim-btn:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.sim-btn.is-active {
+  background: #ffffff !important;
+  color: #0a0a0a !important;
+  border-color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.18) !important;
+}
+
+.sim-btn.is-active svg,
+.sim-btn.is-active span {
+  color: #0a0a0a !important;
+}
+
+.btn-glow:hover::before {
+  opacity: 0.95;
+  filter: blur(14px);
+}

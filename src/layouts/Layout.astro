@@ -1,0 +1,88 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Notchify — The Dynamic Island, built for Mac",
+  description = "A refined macOS utility that rests seamlessly on your MacBook notch. Control music, stage files, view clipboard history, and monitor hardware without breaking focus."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="dark scroll-smooth" data-lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://github.com/Kharisdestianmaulana-hub/notchify" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/logo.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="/logo.png" />
+
+    <meta name="apple-mobile-web-app-title" content="Notchify" />
+    <meta name="theme-color" content="#030408" />
+
+    <!-- Clean, Human, Linear/Apple-grade Typography (Geist & Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-void text-ink min-h-screen selection:bg-white/20 selection:text-white font-sans antialiased">
+    <slot />
+
+    <script is:inline>
+      const savedLang = localStorage.getItem('notchify_lang') || 'en';
+      document.documentElement.setAttribute('data-lang', savedLang);
+      
+      window.setLanguage = function(lang) {
+        localStorage.setItem('notchify_lang', lang);
+        document.documentElement.setAttribute('data-lang', lang);
+        
+        window.dispatchEvent(new CustomEvent('langchange', { detail: { lang } }));
+        
+        document.querySelectorAll('[data-en]').forEach(el => {
+          const text = el.getAttribute('data-' + lang);
+          if (text) {
+            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+              el.setAttribute('placeholder', text);
+            } else {
+              el.textContent = text;
+            }
+          }
+        });
+
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+          const targetLang = btn.getAttribute('data-lang-target');
+          const isActive = targetLang === lang;
+          btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+          btn.classList.toggle('bg-white', isActive);
+          btn.classList.toggle('text-neutral-950', isActive);
+          btn.classList.toggle('text-neutral-400', !isActive);
+        });
+      };
+
+      document.addEventListener('DOMContentLoaded', () => {
+        window.setLanguage(savedLang);
+      });
+    </script>
+  </body>
+</html>

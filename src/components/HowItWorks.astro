@@ -1,0 +1,82 @@
+---
+import { translations } from '../data/translations';
+const tEn = translations.en.howItWorks;
+const tId = translations.id.howItWorks;
+---
+
+<section class="py-24 md:py-36 relative">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="max-w-2xl mb-16 sm:mb-20">
+      <span class="block text-xs font-mono uppercase tracking-widest text-neutral-500 mb-3">Ergonomics</span>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-semibold text-white tracking-tight mb-4" data-en={tEn.title} data-id={tId.title}>
+        {tEn.title}
+      </h2>
+      <p class="text-base sm:text-lg text-neutral-400 font-normal leading-relaxed" data-en={tEn.subtitle} data-id={tId.subtitle}>
+        {tEn.subtitle}
+      </p>
+    </div>
+
+    <!-- 3-Column Editorial Flow (No Cards) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <!-- Item 1: Shortcut -->
+      <div class="pt-6 border-t border-white/[0.08] flex flex-col justify-between">
+        <div>
+          <span class="block text-xs font-mono text-neutral-500 mb-4 tracking-wider">
+            01 / SHORTCUT
+          </span>
+          <h3 class="text-lg font-medium text-white mb-2.5 tracking-tight" data-en={tEn.shortcutTitle} data-id={tId.shortcutTitle}>
+            {tEn.shortcutTitle}
+          </h3>
+          <p class="text-sm text-neutral-400 leading-relaxed font-normal mb-8" data-en={tEn.shortcutDesc} data-id={tId.shortcutDesc}>
+            {tEn.shortcutDesc}
+          </p>
+        </div>
+        <div class="flex items-center gap-1.5 pt-4 border-t border-white/[0.04]">
+          <kbd class="px-2.5 py-1 rounded-md bg-white/[0.05] text-xs font-mono font-medium text-neutral-200 border border-white/10 shadow-sm">Cmd</kbd>
+          <span class="text-neutral-500 text-xs">+</span>
+          <kbd class="px-2.5 py-1 rounded-md bg-white/[0.05] text-xs font-mono font-medium text-neutral-200 border border-white/10 shadow-sm">Shift</kbd>
+          <span class="text-neutral-500 text-xs">+</span>
+          <kbd class="px-2.5 py-1 rounded-md bg-white/[0.05] text-xs font-mono font-medium text-neutral-200 border border-white/10 shadow-sm">N</kbd>
+        </div>
+      </div>
+
+      <!-- Item 2: Triggers -->
+      <div class="pt-6 border-t border-white/[0.08] flex flex-col justify-between">
+        <div>
+          <span class="block text-xs font-mono text-neutral-500 mb-4 tracking-wider">
+            02 / INTERACTION
+          </span>
+          <h3 class="text-lg font-medium text-white mb-2.5 tracking-tight" data-en={tEn.triggerTitle} data-id={tId.triggerTitle}>
+            {tEn.triggerTitle}
+          </h3>
+          <p class="text-sm text-neutral-400 leading-relaxed font-normal mb-8" data-en={tEn.triggerDesc} data-id={tId.triggerDesc}>
+            {tEn.triggerDesc}
+          </p>
+        </div>
+        <div class="flex items-center gap-2 pt-4 border-t border-white/[0.04] text-xs font-mono">
+          <span class="text-neutral-300">Hover to Bloom</span>
+          <span class="text-neutral-600">•</span>
+          <span class="text-neutral-400">Click to Open</span>
+        </div>
+      </div>
+
+      <!-- Item 3: Fullscreen Detection -->
+      <div class="pt-6 border-t border-white/[0.08] flex flex-col justify-between">
+        <div>
+          <span class="block text-xs font-mono text-neutral-500 mb-4 tracking-wider">
+            03 / INTELLIGENCE
+          </span>
+          <h3 class="text-lg font-medium text-white mb-2.5 tracking-tight" data-en={tEn.fullscreenTitle} data-id={tId.fullscreenTitle}>
+            {tEn.fullscreenTitle}
+          </h3>
+          <p class="text-sm text-neutral-400 leading-relaxed font-normal mb-8" data-en={tEn.fullscreenDesc} data-id={tId.fullscreenDesc}>
+            {tEn.fullscreenDesc}
+          </p>
+        </div>
+        <div class="flex items-center gap-2 pt-4 border-t border-white/[0.04] text-xs text-neutral-500 font-mono">
+          <span>YouTube, Netflix, Keynote</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
