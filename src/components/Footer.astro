@@ -10,7 +10,7 @@ const tId = translations.id.footer;
       <!-- Col 1: Brand -->
       <div class="md:col-span-2">
         <div class="flex items-center gap-2.5 mb-3">
-          <img src="/logo.png" alt="Notchify Logo" class="w-7 h-7 rounded-lg" />
+          <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Notchify Logo" class="w-7 h-7 rounded-lg" />
           <span class="text-base font-semibold text-white">Notchify</span>
         </div>
         <p class="max-w-md text-neutral-400 leading-relaxed mb-3" data-en={tEn.desc} data-id={tId.desc}>

@@ -4,5 +4,7 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://kharisdestianmaulana-hub.github.io',
+  base: '/notchify-web/',
   integrations: [tailwind()],
 });

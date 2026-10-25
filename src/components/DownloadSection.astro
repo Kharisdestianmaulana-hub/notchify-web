@@ -9,10 +9,10 @@ const tId = translations.id.downloadSec;
     <!-- App Icon -->
     <div class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 mx-auto mb-5 sm:mb-6 relative">
       <img
-        src="/app-icon.png"
+        src={`${import.meta.env.BASE_URL}app-icon.png`}
         alt="Notchify App Icon"
         class="w-full h-full rounded-[22px] shadow-[0_20px_40px_rgba(0,0,0,0.6)] border border-white/10"
-        onerror="this.src='/logo.png'"
+        onerror={`this.src='${import.meta.env.BASE_URL}logo.png'`}
       />
     </div>
 
