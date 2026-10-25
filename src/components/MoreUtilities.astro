@@ -2,47 +2,174 @@
 import { translations } from '../data/translations';
 const tEn = translations.en.moreUtilities;
 const tId = translations.id.moreUtilities;
+
+// Icon styling configurations matching the reference screenshot
+const iconConfigs = [
+  // 1. Musik dari pemutar apa pun
+  {
+    bgClass: 'bg-gradient-to-tr from-[#98108e] via-[#bd187e] to-[#ec3f99]',
+    glowClass: 'shadow-[0_8px_24px_rgba(236,63,153,0.35)]',
+    borderClass: 'border-pink-300/20',
+    icon: 'music',
+  },
+  // 2. Lirik tersinkron
+  {
+    bgClass: 'bg-gradient-to-tr from-[#0e48d0] via-[#1a6cf0] to-[#3a9af8]',
+    glowClass: 'shadow-[0_8px_24px_rgba(26,108,240,0.35)]',
+    borderClass: 'border-blue-300/20',
+    icon: 'lyrics',
+  },
+  // 3. Timer fokus
+  {
+    bgClass: 'bg-gradient-to-tr from-[#c41e1e] via-[#e53939] to-[#ff5c52]',
+    glowClass: 'shadow-[0_8px_24px_rgba(229,57,57,0.35)]',
+    borderClass: 'border-red-300/20',
+    icon: 'timer',
+  },
+  // 4. Pengingat minum
+  {
+    bgClass: 'bg-gradient-to-tr from-[#0e5cd8] via-[#2185ee] to-[#4eb0ff]',
+    glowClass: 'shadow-[0_8px_24px_rgba(33,133,238,0.35)]',
+    borderClass: 'border-cyan-300/20',
+    icon: 'drop',
+  },
+  // 5. Rak file (Shelf)
+  {
+    bgClass: 'bg-gradient-to-b from-[#3a3e46] via-[#23262c] to-[#14161a]',
+    glowClass: 'shadow-[0_8px_24px_rgba(0,0,0,0.6)]',
+    borderClass: 'border-white/20',
+    icon: 'shelf',
+  },
+  // 6. To-do dengan pengingat
+  {
+    bgClass: 'bg-gradient-to-tr from-[#1aa844] via-[#27c364] to-[#4aeb83]',
+    glowClass: 'shadow-[0_8px_24px_rgba(39,195,100,0.35)]',
+    borderClass: 'border-emerald-300/20',
+    icon: 'todo',
+  },
+  // 7. Volume, kecerahan, dan tombol
+  {
+    bgClass: 'bg-gradient-to-b from-[#4e535c] via-[#33373e] to-[#202227]',
+    glowClass: 'shadow-[0_8px_24px_rgba(0,0,0,0.5)]',
+    borderClass: 'border-white/15',
+    icon: 'volume',
+  },
+  // 8. Baterai, Wi-Fi, dan headphone
+  {
+    bgClass: 'bg-gradient-to-tr from-[#0ab095] via-[#1ccfb1] to-[#47edd2]',
+    glowClass: 'shadow-[0_8px_24px_rgba(28,207,177,0.35)]',
+    borderClass: 'border-teal-300/20',
+    icon: 'battery',
+  },
+];
+
+// Helper to chunk the 8 utilities into 4 pairs (rows)
+const rows = [
+  [0, 1],
+  [2, 3],
+  [4, 5],
+  [6, 7],
+];
 ---
 
-<section id="utilities" class="py-16 sm:py-24 md:py-32 relative">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6">
-    <!-- Header: Editorial Minimalist -->
-    <div class="max-w-2xl mb-10 sm:mb-16 md:mb-20">
-      <span class="block text-xs font-mono uppercase tracking-widest text-neutral-500 mb-3" data-en={tEn.badge} data-id={tId.badge}>
-        {tEn.badge}
-      </span>
-      <h2 class="text-2xl sm:text-4xl md:text-5xl font-semibold text-white tracking-tight mb-3 sm:mb-4" data-en={tEn.title} data-id={tId.title}>
+<section id="utilities" class="py-20 sm:py-28 md:py-36 relative bg-void">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6">
+    <!-- Header: Bold Apple-grade Typography -->
+    <div class="mb-12 sm:mb-16">
+      <h2
+        class="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-4 sm:mb-5 leading-[1.08] max-w-2xl"
+        data-en={tEn.title}
+        data-id={tId.title}
+      >
         {tEn.title}
       </h2>
-      <p class="text-sm sm:text-base md:text-lg text-neutral-400 leading-relaxed font-normal" data-en={tEn.subtitle} data-id={tId.subtitle}>
+      <p
+        class="text-sm sm:text-base md:text-[17px] text-neutral-400 font-normal leading-relaxed max-w-2xl"
+        data-en={tEn.subtitle}
+        data-id={tId.subtitle}
+      >
         {tEn.subtitle}
       </p>
     </div>
 
-    <!-- Editorial Index Grid (No Cards, Pure Typography) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 sm:gap-x-10 gap-y-10 sm:gap-y-14">
-      {tEn.items.map((item, idx) => {
-        const idItem = tId.items[idx];
-        const num = String(idx + 1).padStart(2, '0');
-        return (
-          <div class="pt-6 border-t border-white/[0.08] flex flex-col justify-between group">
-            <div>
-              <span class="block text-xs font-mono text-neutral-500 mb-4 tracking-wider group-hover:text-neutral-300 transition-colors">
-                {num}
-              </span>
-              <h3 class="text-base font-medium text-white mb-2.5 tracking-tight group-hover:text-neutral-100 transition-colors" data-en={item.title} data-id={idItem.title}>
-                {item.title}
-              </h3>
-              <p class="text-sm text-neutral-400 font-normal leading-relaxed" data-en={item.desc} data-id={idItem.desc}>
-                {item.desc}
-              </p>
-            </div>
-            <div class="mt-6 pt-3 border-t border-white/[0.04] text-[11px] font-mono text-neutral-500">
-              <span data-en={item.tag} data-id={idItem.tag}>{item.tag}</span>
-            </div>
-          </div>
-        );
-      })}
+    <!-- 2-Column Grid with Hairline Dividers Between Rows -->
+    <div class="border-t border-white/[0.08]">
+      {rows.map((rowPair) => (
+        <div class="py-7 sm:py-8 border-b border-white/[0.08] grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10 lg:gap-14">
+          {rowPair.map((idx) => {
+            const itemEn = tEn.items[idx];
+            const itemId = tId.items[idx];
+            const cfg = iconConfigs[idx];
+            return (
+              <div class="flex items-start gap-4 sm:gap-5 group">
+                <!-- Squircle Icon with Ambient Lighting -->
+                <div
+                  class={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex-shrink-0 flex items-center justify-center relative border transition-transform duration-300 group-hover:scale-105 ${cfg.bgClass} ${cfg.glowClass} ${cfg.borderClass}`}
+                >
+                  {cfg.icon === 'music' && (
+                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white fill-current" viewBox="0 0 24 24">
+                      <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
+                    </svg>
+                  )}
+                  {cfg.icon === 'lyrics' && (
+                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white fill-current" viewBox="0 0 24 24">
+                      <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-3 12H7v-2h10v2zm0-3H7V9h10v2zm0-3H7V6h10v2z" />
+                    </svg>
+                  )}
+                  {cfg.icon === 'timer' && (
+                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white fill-current" viewBox="0 0 24 24">
+                      <path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z" />
+                    </svg>
+                  )}
+                  {cfg.icon === 'drop' && (
+                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white fill-current" viewBox="0 0 24 24">
+                      <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
+                    </svg>
+                  )}
+                  {cfg.icon === 'shelf' && (
+                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white fill-current" viewBox="0 0 24 24">
+                      <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
+                    </svg>
+                  )}
+                  {cfg.icon === 'todo' && (
+                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white fill-current" viewBox="0 0 24 24">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                    </svg>
+                  )}
+                  {cfg.icon === 'volume' && (
+                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white fill-current" viewBox="0 0 24 24">
+                      <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
+                    </svg>
+                  )}
+                  {cfg.icon === 'battery' && (
+                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white fill-current" viewBox="0 0 24 24">
+                      <path d="M7 2v11h3v9l7-12h-4l4-8z" />
+                    </svg>
+                  )}
+                </div>
+
+                <!-- Text Content -->
+                <div class="flex-1 min-w-0">
+                  <h3
+                    class="text-base sm:text-[17px] font-semibold text-white tracking-tight mb-1 sm:mb-1.5 leading-snug group-hover:text-white transition-colors"
+                    data-en={itemEn.title}
+                    data-id={itemId.title}
+                  >
+                    {itemEn.title}
+                  </h3>
+                  <p
+                    class="text-xs sm:text-[13.5px] text-neutral-400 font-normal leading-relaxed"
+                    data-en={itemEn.desc}
+                    data-id={itemId.desc}
+                  >
+                    {itemEn.desc}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      ))}
     </div>
   </div>
 </section>

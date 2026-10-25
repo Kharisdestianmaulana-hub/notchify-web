@@ -202,39 +202,49 @@ export const translations: Record<'en' | 'id', Translations> = {
       }
     },
     moreUtilities: {
-      badge: "Built-in Suite",
-      title: "Everyday Desktop Utilities",
-      subtitle: "Engineered into the same native binary to eliminate single-purpose menu bar clutter.",
+      badge: "Built-in Utilities",
+      title: "Everything you glance at, all in one place.",
+      subtitle: "Hover near the notch to open, move away to close. Nothing to configure or pin.",
       items: [
         {
-          title: "Instant Quick Calculator",
-          desc: "4x4 keypad grid with live arithmetic expression evaluation and one-click clipboard copying. No need to open a separate calculator app.",
-          tag: "Calculator"
+          title: "Music from any player",
+          desc: "Spotify, Apple Music, YouTube in browser: view playing track, skip, pause, and seek without switching windows.",
+          tag: "Music"
         },
         {
-          title: "Live Ambient Weather",
-          desc: "Glanceable local temperature in Celsius, dynamic sky conditions (sunny, overcast, rain), and instant one-tap refresh.",
-          tag: "Weather"
+          title: "Synced lyrics",
+          desc: "Click the lyrics button, the notch splits in two, and each line highlights in real-time as it's sung. Click any line to jump directly to it.",
+          tag: "Lyrics"
         },
         {
-          title: "Agenda & Upcoming Meetings",
-          desc: "Direct integration with calendar events. Shows upcoming meetings with one-click direct buttons to join Google Meet, Zoom, or FaceTime calls.",
-          tag: "Calendar"
+          title: "Focus timer",
+          desc: "Start a Pomodoro session and track the countdown right in the notch. A subtle chime notifies you when it's time for a break.",
+          tag: "Focus"
         },
         {
-          title: "Quick Camera Mirror",
-          desc: "Uses FaceTime HD camera under the physical lens for a discreet, fast video mirror check before joining video meetings.",
-          tag: "FaceTime HD"
+          title: "Hydration reminder",
+          desc: "Set your bottle volume and daily goal. Notchify reminds you during active hours and keeps track of your daily intake.",
+          tag: "Health"
         },
         {
-          title: "Scratchpad & Task Checklist",
-          desc: "Instant notepad with live word count and persistent local storage, alongside a quick toggleable to-do checklist for daily priorities.",
-          tag: "Scratchpad"
+          title: "File shelf",
+          desc: "Drag files to the notch to hold them temporarily, then drag them out into chats, emails, or another folder.",
+          tag: "Shelf"
         },
         {
-          title: "Network Radar & Speed Test",
-          desc: "Instant benchmark for Wi-Fi download and upload speed in Mbps, connection latency (ping ms), and signal stability.",
-          tag: "Speed Test"
+          title: "To-dos with reminders",
+          desc: "Jot down tasks, schedule deadlines, and the notch gently alerts you when the time arrives.",
+          tag: "Tasks"
+        },
+        {
+          title: "Volume, brightness, and HUD",
+          desc: "Sleek indicators for volume and display brightness, plus subtle heads-up banners for Caps Lock and input source changes.",
+          tag: "System HUD"
+        },
+        {
+          title: "Battery, Wi-Fi, and audio",
+          desc: "Instant glanceable banners when your charger is connected, network drops, or earbuds connect.",
+          tag: "Peripherals"
         }
       ]
     },
@@ -435,38 +445,48 @@ export const translations: Record<'en' | 'id', Translations> = {
     },
     moreUtilities: {
       badge: "Utilitas Lengkap",
-      title: "Peralatan Kerja Sehari-hari",
-      subtitle: "Terintegrasi langsung dalam binary native yang sama untuk menghilangkan aplikasi menu bar terpisah.",
+      title: "Semua yang sering kamu lirik, di satu tempat.",
+      subtitle: "Arahkan kursor ke notch untuk membukanya, dan menjauh untuk menutupnya. Tidak ada yang perlu diatur atau disematkan.",
       items: [
         {
-          title: "Kalkulator Cepat",
-          desc: "Grid 4x4 dengan kalkulasi ekspresi matematika instan dan tombol satu-klik salin hasil ke papan klip tanpa perlu membuka aplikasi lain.",
-          tag: "Kalkulator"
+          title: "Musik dari pemutar apa pun",
+          desc: "Spotify, Apple Music, YouTube di browser: lihat lagu yang diputar, ganti lagu, jeda, dan geser posisi lagu tanpa pindah jendela.",
+          tag: "Musik"
         },
         {
-          title: "Informasi Cuaca Langsung",
-          desc: "Pantau suhu lokal dalam derajat Celsius, kondisi awan/hujan, dan lokasi secara sekilas dengan tombol penyegaran instan.",
-          tag: "Cuaca"
+          title: "Lirik tersinkron",
+          desc: "Klik tombol lirik, notch terbagi dua, dan setiap baris menyala saat dinyanyikan. Klik satu baris untuk melompat ke bagian itu.",
+          tag: "Lirik"
         },
         {
-          title: "Agenda & Jadwal Pertemuan",
-          desc: "Sinkronisasi jadwal acara kalender harian dengan tombol langsung untuk bergabung ke panggilan Google Meet, Zoom, atau FaceTime.",
-          tag: "Kalender"
+          title: "Timer fokus",
+          desc: "Mulai sesi Pomodoro dan lihat hitung mundurnya di notch. Bunyi lembut memberi tahu kapan waktunya istirahat.",
+          tag: "Fokus"
         },
         {
-          title: "Cermin Kamera Cepat",
-          desc: "Menggunakan kamera FaceTime HD tepat di bawah lubang fisik notch untuk pratinjau cermin video instan sebelum bergabung ke video call.",
-          tag: "FaceTime HD"
+          title: "Pengingat minum",
+          desc: "Atur ukuran botol dan target harianmu. Notchify mengingatkan di jam aktifmu dan mencatat berapa banyak yang sudah kamu minum.",
+          tag: "Kesehatan"
         },
         {
-          title: "Catatan Coretan & Checklist",
-          desc: "Papan catatan teks instan dengan penghitung kata otomatis serta daftar to-do checklist yang tersimpan aman di memori lokal.",
-          tag: "Catatan"
+          title: "Rak file (Shelf)",
+          desc: "Seret file ke notch untuk menyimpannya sementara, lalu seret keluar ke chat, email, atau folder lain.",
+          tag: "Rak File"
         },
         {
-          title: "Radar Jaringan & Speed Test",
-          desc: "Uji kecepatan unduh & unggah internet (Mbps) secara instan, pengukuran latensi ping (ms), dan kestabilan koneksi Wi-Fi.",
-          tag: "Speed Test"
+          title: "To-do dengan pengingat",
+          desc: "Catat tugas, beri waktu, dan notch akan mengingatkanmu saat waktunya tiba.",
+          tag: "Tugas"
+        },
+        {
+          title: "Volume, kecerahan, dan tombol",
+          desc: "Tampilan rapi untuk volume dan kecerahan, plus pemberitahuan saat Caps Lock menyala atau bahasa keyboard berganti.",
+          tag: "HUD Sistem"
+        },
+        {
+          title: "Baterai, Wi-Fi, dan headphone",
+          desc: "Pemberitahuan singkat saat charger dicolok, koneksi terputus, atau earbuds tersambung.",
+          tag: "Perangkat"
         }
       ]
     },
