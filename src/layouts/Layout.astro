@@ -49,6 +49,19 @@ const {
   <body class="bg-void text-ink min-h-screen selection:bg-white/20 selection:text-white font-sans antialiased overflow-x-hidden w-full">
     <slot />
 
+    <!-- Floating Back to Top Button (Apple Frosted Glass) -->
+    <button
+      id="back-to-top"
+      type="button"
+      aria-label="Back to top"
+      title="Back to top"
+      class="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-neutral-900/80 backdrop-blur-xl border border-white/10 text-neutral-300 hover:text-white hover:border-white/30 hover:bg-neutral-800/90 hover:scale-105 active:scale-95 shadow-2xl transition-all duration-300 opacity-0 pointer-events-none translate-y-3 flex items-center justify-center cursor-pointer"
+    >
+      <svg class="w-4 h-4 fill-none stroke-current" viewBox="0 0 24 24" stroke-width="2.2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+      </svg>
+    </button>
+
     <script is:inline>
       const savedLang = localStorage.getItem('notchify_lang') || 'en';
       document.documentElement.setAttribute('data-lang', savedLang);
@@ -82,6 +95,27 @@ const {
 
       document.addEventListener('DOMContentLoaded', () => {
         window.setLanguage(savedLang);
+
+        // Back to Top Controller
+        const bttBtn = document.getElementById('back-to-top');
+        if (bttBtn) {
+          window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+              bttBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-3');
+              bttBtn.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+            } else {
+              bttBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-3');
+              bttBtn.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+            }
+          }, { passive: true });
+
+          bttBtn.addEventListener('click', () => {
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            });
+          });
+        }
       });
     </script>
   </body>

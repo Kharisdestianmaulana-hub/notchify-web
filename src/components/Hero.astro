@@ -82,12 +82,20 @@ const tId = translations.id.hero;
   </div>
 
   <!-- Scroll Prompt -->
-  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-mist/40 hover:text-mist/70 transition-colors cursor-pointer">
-    <span class="text-[10px] uppercase tracking-widest font-semibold">Interactive Demo</span>
-    <svg class="w-4 h-4 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <a
+    href="#demo"
+    aria-label="Scroll to Interactive Demo"
+    class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-neutral-400 hover:text-white transition-colors cursor-pointer group"
+  >
+    <span
+      class="text-[10px] uppercase tracking-widest font-semibold"
+      data-en="Interactive Demo"
+      data-id="Demo Interaktif"
+    >Interactive Demo</span>
+    <svg class="w-4 h-4 text-neutral-400 group-hover:text-white transition-colors animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
     </svg>
-  </div>
+  </a>
 </section>
 
 <!-- Client Script for Live GitHub Releases Fetcher & State Synchronization -->
