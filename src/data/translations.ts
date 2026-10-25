@@ -134,14 +134,14 @@ export const translations: Record<'en' | 'id', Translations> = {
       github: "GitHub",
     },
     hero: {
-      badge: "macOS 12.0 Monterey or later",
+      badge: "macOS 12.0 Monterey to Latest",
       title: "The Dynamic Island,",
       titleHighlight: "built for Mac.",
       lede: "A refined desktop utility that rests seamlessly on your MacBook notch. Control playback with synced lyrics, hold files temporarily, view recent clipboard items, and monitor hardware without breaking focus.",
       downloadBtn: "Download for Mac",
       githubBtn: "Source Code",
       downloadsCount: "downloads",
-      versionInfo: "Universal Binary for Apple Silicon and Intel",
+      versionInfo: "Universal Binary (Apple Silicon & Intel)",
       universalBadge: "Open Source",
       releaseNotice: "Direct .dmg download from official GitHub Releases",
       statusDev: "In Development",
@@ -314,7 +314,7 @@ export const translations: Record<'en' | 'id', Translations> = {
         },
         {
           q: "Which Mac models and OS versions are supported?",
-          a: "Notchify supports macOS 12.0 Monterey and newer, including Ventura, Sonoma, and Sequoia on Apple Silicon (M1/M2/M3/M4) and Intel Macs.",
+          a: "Notchify supports macOS 12.0 Monterey all the way to the latest macOS versions. It is compiled natively as a Universal Binary, running seamlessly with zero emulation on both Apple Silicon (M1/M2/M3/M4) and Intel Macs.",
         },
         {
           q: "What if my Mac has no camera notch?",
@@ -343,8 +343,8 @@ export const translations: Record<'en' | 'id', Translations> = {
       buildFromSourceBtn: "Build from Source via Terminal",
       buildFromSourceDesc: "Clone and compile with xcodebuild locally",
       specsTitle: "System Specifications",
-      minOs: "macOS 12.0 Monterey+",
-      arch: "Universal (Apple Silicon and Intel)",
+      minOs: "macOS 12.0 Monterey to Latest",
+      arch: "Universal (Apple Silicon & Intel)",
       license: "MIT Open Source",
     },
     footer: {
@@ -366,14 +366,14 @@ export const translations: Record<'en' | 'id', Translations> = {
       github: "GitHub",
     },
     hero: {
-      badge: "macOS 12.0 Monterey ke atas",
+      badge: "macOS 12.0 Monterey hingga Terbaru",
       title: "Dynamic Island,",
       titleHighlight: "kini untuk Mac.",
       lede: "Utilitas desktop yang menyatu di area notch MacBook Anda. Kontrol musik dengan lirik tersinkron, simpan berkas sementara, kelola clipboard, dan pantau performa hardware tanpa memecah konsentrasi.",
       downloadBtn: "Unduh untuk Mac",
       githubBtn: "Kode Sumber",
       downloadsCount: "unduhan",
-      versionInfo: "Universal Binary untuk Apple Silicon dan Intel",
+      versionInfo: "Universal Binary (Apple Silicon & Intel)",
       universalBadge: "Sumber Terbuka",
       releaseNotice: "Unduhan file .dmg langsung dari rilis resmi GitHub",
       statusDev: "Dalam Pengembangan",
@@ -546,7 +546,7 @@ export const translations: Record<'en' | 'id', Translations> = {
         },
         {
           q: "Model Mac dan versi macOS apa saja yang didukung?",
-          a: "Notchify mendukung macOS 12.0 Monterey ke atas, termasuk Ventura, Sonoma, dan Sequoia pada Mac berbasis Apple Silicon (M1/M2/M3/M4) maupun Intel.",
+          a: "Notchify mendukung macOS 12.0 Monterey hingga versi macOS terbaru. Aplikasi dikompilasi secara native sebagai Universal Binary sehingga berjalan mulus tanpa emulasi di Mac berbasis Apple Silicon (M1/M2/M3/M4) maupun Intel.",
         },
         {
           q: "Bagaimana jika Mac saya tidak memiliki notch kamera fisik?",
@@ -575,8 +575,8 @@ export const translations: Record<'en' | 'id', Translations> = {
       buildFromSourceBtn: "Kompilasi dari Terminal",
       buildFromSourceDesc: "Clone dan build lokal menggunakan xcodebuild",
       specsTitle: "Spesifikasi Sistem",
-      minOs: "macOS 12.0 Monterey+",
-      arch: "Universal (Apple Silicon dan Intel)",
+      minOs: "macOS 12.0 Monterey hingga Terbaru",
+      arch: "Universal (Apple Silicon & Intel)",
       license: "Lisensi MIT",
     },
     footer: {
