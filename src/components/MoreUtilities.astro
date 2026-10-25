@@ -2,89 +2,25 @@
 import { translations } from '../data/translations';
 const tEn = translations.en.moreUtilities;
 const tId = translations.id.moreUtilities;
-
-// Icon styling configurations matching the reference screenshot
-const iconConfigs = [
-  // 1. Musik dari pemutar apa pun
-  {
-    bgClass: 'bg-gradient-to-tr from-[#98108e] via-[#bd187e] to-[#ec3f99]',
-    glowClass: 'shadow-[0_8px_24px_rgba(236,63,153,0.35)]',
-    borderClass: 'border-pink-300/20',
-    icon: 'music',
-  },
-  // 2. Lirik tersinkron
-  {
-    bgClass: 'bg-gradient-to-tr from-[#0e48d0] via-[#1a6cf0] to-[#3a9af8]',
-    glowClass: 'shadow-[0_8px_24px_rgba(26,108,240,0.35)]',
-    borderClass: 'border-blue-300/20',
-    icon: 'lyrics',
-  },
-  // 3. Timer fokus
-  {
-    bgClass: 'bg-gradient-to-tr from-[#c41e1e] via-[#e53939] to-[#ff5c52]',
-    glowClass: 'shadow-[0_8px_24px_rgba(229,57,57,0.35)]',
-    borderClass: 'border-red-300/20',
-    icon: 'timer',
-  },
-  // 4. Pengingat minum
-  {
-    bgClass: 'bg-gradient-to-tr from-[#0e5cd8] via-[#2185ee] to-[#4eb0ff]',
-    glowClass: 'shadow-[0_8px_24px_rgba(33,133,238,0.35)]',
-    borderClass: 'border-cyan-300/20',
-    icon: 'drop',
-  },
-  // 5. Rak file (Shelf)
-  {
-    bgClass: 'bg-gradient-to-b from-[#3a3e46] via-[#23262c] to-[#14161a]',
-    glowClass: 'shadow-[0_8px_24px_rgba(0,0,0,0.6)]',
-    borderClass: 'border-white/20',
-    icon: 'shelf',
-  },
-  // 6. To-do dengan pengingat
-  {
-    bgClass: 'bg-gradient-to-tr from-[#1aa844] via-[#27c364] to-[#4aeb83]',
-    glowClass: 'shadow-[0_8px_24px_rgba(39,195,100,0.35)]',
-    borderClass: 'border-emerald-300/20',
-    icon: 'todo',
-  },
-  // 7. Volume, kecerahan, dan tombol
-  {
-    bgClass: 'bg-gradient-to-b from-[#4e535c] via-[#33373e] to-[#202227]',
-    glowClass: 'shadow-[0_8px_24px_rgba(0,0,0,0.5)]',
-    borderClass: 'border-white/15',
-    icon: 'volume',
-  },
-  // 8. Baterai, Wi-Fi, dan headphone
-  {
-    bgClass: 'bg-gradient-to-tr from-[#0ab095] via-[#1ccfb1] to-[#47edd2]',
-    glowClass: 'shadow-[0_8px_24px_rgba(28,207,177,0.35)]',
-    borderClass: 'border-teal-300/20',
-    icon: 'battery',
-  },
-];
-
-// Helper to chunk the 8 utilities into 4 pairs (rows)
-const rows = [
-  [0, 1],
-  [2, 3],
-  [4, 5],
-  [6, 7],
-];
 ---
 
-<section id="utilities" class="py-20 sm:py-28 md:py-36 relative bg-void">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6">
-    <!-- Header: Bold Apple-grade Typography -->
-    <div class="mb-12 sm:mb-16">
+<section id="utilities" class="py-20 sm:py-28 md:py-36 relative bg-void overflow-hidden">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <!-- Header: Apple Editorial Typography -->
+    <div class="max-w-3xl mb-12 sm:mb-16 md:mb-20">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-[11px] sm:text-xs font-mono uppercase tracking-widest text-neutral-400 mb-4 sm:mb-5">
+        <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+        <span data-en={tEn.badge} data-id={tId.badge}>{tEn.badge}</span>
+      </div>
       <h2
-        class="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-4 sm:mb-5 leading-[1.08] max-w-2xl"
+        class="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-4 sm:mb-5 leading-[1.08]"
         data-en={tEn.title}
         data-id={tId.title}
       >
         {tEn.title}
       </h2>
       <p
-        class="text-sm sm:text-base md:text-[17px] text-neutral-400 font-normal leading-relaxed max-w-2xl"
+        class="text-base sm:text-lg md:text-xl text-neutral-400 font-normal leading-relaxed max-w-2xl"
         data-en={tEn.subtitle}
         data-id={tId.subtitle}
       >
@@ -92,84 +28,349 @@ const rows = [
       </p>
     </div>
 
-    <!-- 2-Column Grid with Hairline Dividers Between Rows -->
-    <div class="border-t border-white/[0.08]">
-      {rows.map((rowPair) => (
-        <div class="py-7 sm:py-8 border-b border-white/[0.08] grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10 lg:gap-14">
-          {rowPair.map((idx) => {
-            const itemEn = tEn.items[idx];
-            const itemId = tId.items[idx];
-            const cfg = iconConfigs[idx];
-            return (
-              <div class="flex items-start gap-4 sm:gap-5 group">
-                <!-- Squircle Icon with Ambient Lighting -->
-                <div
-                  class={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex-shrink-0 flex items-center justify-center relative border transition-transform duration-300 group-hover:scale-105 ${cfg.bgClass} ${cfg.glowClass} ${cfg.borderClass}`}
-                >
-                  {cfg.icon === 'music' && (
-                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white fill-current" viewBox="0 0 24 24">
-                      <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
-                    </svg>
-                  )}
-                  {cfg.icon === 'lyrics' && (
-                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white fill-current" viewBox="0 0 24 24">
-                      <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-3 12H7v-2h10v2zm0-3H7V9h10v2zm0-3H7V6h10v2z" />
-                    </svg>
-                  )}
-                  {cfg.icon === 'timer' && (
-                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white fill-current" viewBox="0 0 24 24">
-                      <path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z" />
-                    </svg>
-                  )}
-                  {cfg.icon === 'drop' && (
-                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white fill-current" viewBox="0 0 24 24">
-                      <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
-                    </svg>
-                  )}
-                  {cfg.icon === 'shelf' && (
-                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white fill-current" viewBox="0 0 24 24">
-                      <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
-                    </svg>
-                  )}
-                  {cfg.icon === 'todo' && (
-                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white fill-current" viewBox="0 0 24 24">
-                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-                    </svg>
-                  )}
-                  {cfg.icon === 'volume' && (
-                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white fill-current" viewBox="0 0 24 24">
-                      <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
-                    </svg>
-                  )}
-                  {cfg.icon === 'battery' && (
-                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white fill-current" viewBox="0 0 24 24">
-                      <path d="M7 2v11h3v9l7-12h-4l4-8z" />
-                    </svg>
-                  )}
-                </div>
+    <!-- Bento Grid (3-column asymmetric layout) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+      
+      <!-- CARD 1: File Shelf & Staging (Large - 2 Columns) -->
+      <div class="md:col-span-2 lg:col-span-2 rounded-3xl p-6 sm:p-8 bg-[#0c0d13]/90 border border-white/[0.08] hover:border-white/[0.18] transition-all duration-300 relative overflow-hidden flex flex-col justify-between group shadow-[0_12px_40px_rgba(0,0,0,0.5)]">
+        <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-blue-500/15 transition-all"></div>
+        <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none"></div>
 
-                <!-- Text Content -->
-                <div class="flex-1 min-w-0">
-                  <h3
-                    class="text-base sm:text-[17px] font-semibold text-white tracking-tight mb-1 sm:mb-1.5 leading-snug group-hover:text-white transition-colors"
-                    data-en={itemEn.title}
-                    data-id={itemId.title}
-                  >
-                    {itemEn.title}
-                  </h3>
-                  <p
-                    class="text-xs sm:text-[13.5px] text-neutral-400 font-normal leading-relaxed"
-                    data-en={itemEn.desc}
-                    data-id={itemId.desc}
-                  >
-                    {itemEn.desc}
-                  </p>
+        <div class="relative z-10 mb-8 max-w-xl">
+          <span class="inline-block text-[11px] font-mono uppercase tracking-wider text-blue-400 mb-2">
+            {tEn.items[0].tag}
+          </span>
+          <h3 class="text-xl sm:text-2xl font-semibold text-white tracking-tight mb-2" data-en={tEn.items[0].title} data-id={tId.items[0].title}>
+            {tEn.items[0].title}
+          </h3>
+          <p class="text-sm text-neutral-400 leading-relaxed font-normal" data-en={tEn.items[0].desc} data-id={tId.items[0].desc}>
+            {tEn.items[0].desc}
+          </p>
+        </div>
+
+        <!-- Visual Miniature: Top screen bezel with notch and drop shelf -->
+        <div class="relative z-10 w-full pt-4">
+          <div class="w-full rounded-2xl bg-black/70 border border-white/[0.08] p-4 sm:p-5 relative overflow-hidden">
+            <!-- Simulated MacBook Bezel Notch -->
+            <div class="w-28 sm:w-36 h-6 bg-black border-b border-x border-white/20 rounded-b-xl mx-auto flex items-center justify-center gap-2 mb-4 shadow-md">
+              <span class="w-2 h-2 rounded-full bg-[#151515] border border-white/10"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            </div>
+
+            <!-- Staged File Cards Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              <!-- Item 1: Image -->
+              <div class="p-3 rounded-xl bg-white/[0.04] border border-white/10 flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-lg bg-blue-500/20 border border-blue-400/30 flex items-center justify-center flex-shrink-0 text-blue-300">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <span class="block text-xs font-medium text-white truncate">preview.png</span>
+                  <span class="block text-[10px] font-mono text-neutral-400">2.4 MB</span>
                 </div>
               </div>
-            );
-          })}
+
+              <!-- Item 2: Code File -->
+              <div class="p-3 rounded-xl bg-white/[0.04] border border-white/10 flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-lg bg-orange-500/20 border border-orange-400/30 flex items-center justify-center flex-shrink-0 text-orange-300 font-mono text-xs font-bold">
+                  SW
+                </div>
+                <div class="min-w-0 flex-1">
+                  <span class="block text-xs font-medium text-white truncate">Notchify.swift</span>
+                  <span class="block text-[10px] font-mono text-neutral-400">18 KB</span>
+                </div>
+              </div>
+
+              <!-- Item 3: Drop target prompt -->
+              <div class="col-span-2 sm:col-span-1 p-3 rounded-xl border border-dashed border-white/20 bg-white/[0.02] flex items-center justify-center gap-2 text-neutral-400">
+                <svg class="w-4 h-4 animate-bounce text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+                <span class="text-xs font-mono">Drop to stage</span>
+              </div>
+            </div>
+          </div>
         </div>
-      ))}
+      </div>
+
+      <!-- CARD 2: Audio Control & Synced Lyrics (1 Column) -->
+      <div class="md:col-span-1 lg:col-span-1 rounded-3xl p-6 sm:p-8 bg-[#0c0d13]/90 border border-white/[0.08] hover:border-white/[0.18] transition-all duration-300 relative overflow-hidden flex flex-col justify-between group shadow-[0_12px_40px_rgba(0,0,0,0.5)]">
+        <div class="absolute -right-10 -bottom-10 w-60 h-60 bg-pink-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-pink-500/15 transition-all"></div>
+        <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none"></div>
+
+        <div class="relative z-10 mb-6">
+          <span class="inline-block text-[11px] font-mono uppercase tracking-wider text-pink-400 mb-2">
+            {tEn.items[1].tag}
+          </span>
+          <h3 class="text-xl font-semibold text-white tracking-tight mb-2" data-en={tEn.items[1].title} data-id={tId.items[1].title}>
+            {tEn.items[1].title}
+          </h3>
+          <p class="text-sm text-neutral-400 leading-relaxed font-normal" data-en={tEn.items[1].desc} data-id={tId.items[1].desc}>
+            {tEn.items[1].desc}
+          </p>
+        </div>
+
+        <!-- Visual Miniature: Notch Media Pill & Lyrics -->
+        <div class="relative z-10 w-full pt-2">
+          <div class="rounded-2xl bg-black/70 border border-white/[0.08] p-4 flex flex-col gap-3">
+            <!-- Now Playing Notch Pill -->
+            <div class="flex items-center justify-between px-3 py-2 rounded-xl bg-white/[0.04] border border-white/10">
+              <div class="flex items-center gap-2.5 min-w-0">
+                <div class="w-6 h-6 rounded-md bg-gradient-to-tr from-pink-500 to-purple-600 flex items-center justify-center flex-shrink-0 shadow-sm">
+                  <svg class="w-3 h-3 text-white fill-current" viewBox="0 0 24 24">
+                    <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
+                  </svg>
+                </div>
+                <div class="min-w-0">
+                  <span class="block text-xs font-semibold text-white truncate">Daylight</span>
+                  <span class="block text-[10px] text-neutral-400 truncate">Taylor Swift</span>
+                </div>
+              </div>
+              <!-- Mini Soundwave -->
+              <div class="flex items-end gap-1 h-3 flex-shrink-0">
+                <span class="w-0.5 h-3 bg-pink-400 rounded-full animate-pulse"></span>
+                <span class="w-0.5 h-2 bg-pink-400 rounded-full animate-pulse delay-75"></span>
+                <span class="w-0.5 h-3.5 bg-pink-400 rounded-full animate-pulse delay-150"></span>
+                <span class="w-0.5 h-1.5 bg-pink-400 rounded-full animate-pulse delay-100"></span>
+              </div>
+            </div>
+
+            <!-- Synced Lyric Preview -->
+            <div class="space-y-1.5 pt-1 border-t border-white/[0.04]">
+              <p class="text-xs font-medium text-white/95 tracking-tight leading-snug">
+                "And I can still see it all in my head"
+              </p>
+              <p class="text-[11px] text-neutral-500 leading-snug">
+                "Back and forth from New York sneaking in your bed"
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3: Pomodoro Focus Timer (1 Column) -->
+      <div class="rounded-3xl p-6 sm:p-8 bg-[#0c0d13]/90 border border-white/[0.08] hover:border-white/[0.18] transition-all duration-300 relative overflow-hidden flex flex-col justify-between group shadow-[0_12px_40px_rgba(0,0,0,0.5)]">
+        <div class="absolute -right-10 -bottom-10 w-60 h-60 bg-amber-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-amber-500/15 transition-all"></div>
+        <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none"></div>
+
+        <div class="relative z-10 mb-6">
+          <span class="inline-block text-[11px] font-mono uppercase tracking-wider text-amber-400 mb-2">
+            {tEn.items[2].tag}
+          </span>
+          <h3 class="text-xl font-semibold text-white tracking-tight mb-2" data-en={tEn.items[2].title} data-id={tId.items[2].title}>
+            {tEn.items[2].title}
+          </h3>
+          <p class="text-sm text-neutral-400 leading-relaxed font-normal" data-en={tEn.items[2].desc} data-id={tId.items[2].desc}>
+            {tEn.items[2].desc}
+          </p>
+        </div>
+
+        <!-- Visual Miniature: Notch Focus Timer Capsule -->
+        <div class="relative z-10 w-full pt-2">
+          <div class="rounded-2xl bg-black/70 border border-white/[0.08] p-4 flex flex-col items-center text-center">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 mb-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+              <span class="text-[11px] font-mono text-amber-300 uppercase tracking-wider">Deep Sprint</span>
+            </div>
+            <div class="text-3xl font-mono font-bold text-white tracking-wider mb-2.5">
+              24:18
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-white/10 overflow-hidden">
+              <div class="h-full bg-gradient-to-r from-amber-500 to-amber-300 w-[78%] rounded-full"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 4: Instant Clipboard Memory (1 Column) -->
+      <div class="rounded-3xl p-6 sm:p-8 bg-[#0c0d13]/90 border border-white/[0.08] hover:border-white/[0.18] transition-all duration-300 relative overflow-hidden flex flex-col justify-between group shadow-[0_12px_40px_rgba(0,0,0,0.5)]">
+        <div class="absolute -right-10 -bottom-10 w-60 h-60 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-indigo-500/15 transition-all"></div>
+        <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none"></div>
+
+        <div class="relative z-10 mb-6">
+          <span class="inline-block text-[11px] font-mono uppercase tracking-wider text-indigo-400 mb-2">
+            {tEn.items[3].tag}
+          </span>
+          <h3 class="text-xl font-semibold text-white tracking-tight mb-2" data-en={tEn.items[3].title} data-id={tId.items[3].title}>
+            {tEn.items[3].title}
+          </h3>
+          <p class="text-sm text-neutral-400 leading-relaxed font-normal" data-en={tEn.items[3].desc} data-id={tId.items[3].desc}>
+            {tEn.items[3].desc}
+          </p>
+        </div>
+
+        <!-- Visual Miniature: Stacked Clip Chips -->
+        <div class="relative z-10 w-full pt-2">
+          <div class="rounded-2xl bg-black/70 border border-white/[0.08] p-3 space-y-2">
+            <!-- Chip 1 -->
+            <div class="flex items-center justify-between p-2 rounded-xl bg-white/[0.04] border border-white/10 text-xs">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded bg-blue-500 flex-shrink-0"></span>
+                <span class="font-mono text-white/90">#0A84FF</span>
+              </div>
+              <span class="text-[10px] font-mono text-neutral-400">Color</span>
+            </div>
+            <!-- Chip 2 -->
+            <div class="flex items-center justify-between p-2 rounded-xl bg-white/[0.04] border border-white/10 text-xs">
+              <div class="flex items-center gap-2 min-w-0">
+                <span class="text-neutral-400 font-mono text-[11px]">&gt;</span>
+                <span class="font-mono text-neutral-300 truncate">git clone notchify.git</span>
+              </div>
+              <span class="text-[10px] font-mono text-neutral-400">CLI</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 5: Peripherals & Battery HUD (1 Column) -->
+      <div class="rounded-3xl p-6 sm:p-8 bg-[#0c0d13]/90 border border-white/[0.08] hover:border-white/[0.18] transition-all duration-300 relative overflow-hidden flex flex-col justify-between group shadow-[0_12px_40px_rgba(0,0,0,0.5)]">
+        <div class="absolute -right-10 -bottom-10 w-60 h-60 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-emerald-500/15 transition-all"></div>
+        <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none"></div>
+
+        <div class="relative z-10 mb-6">
+          <span class="inline-block text-[11px] font-mono uppercase tracking-wider text-emerald-400 mb-2">
+            {tEn.items[4].tag}
+          </span>
+          <h3 class="text-xl font-semibold text-white tracking-tight mb-2" data-en={tEn.items[4].title} data-id={tId.items[4].title}>
+            {tEn.items[4].title}
+          </h3>
+          <p class="text-sm text-neutral-400 leading-relaxed font-normal" data-en={tEn.items[4].desc} data-id={tId.items[4].desc}>
+            {tEn.items[4].desc}
+          </p>
+        </div>
+
+        <!-- Visual Miniature: Device Heads-Up Banner -->
+        <div class="relative z-10 w-full pt-2">
+          <div class="rounded-2xl bg-black/70 border border-white/[0.08] p-3 space-y-2">
+            <div class="flex items-center justify-between p-2.5 rounded-xl bg-white/[0.04] border border-white/10">
+              <div class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                <span class="text-xs font-medium text-white">MagSafe Charger</span>
+              </div>
+              <span class="text-xs font-mono font-bold text-emerald-400">100%</span>
+            </div>
+            <div class="flex items-center justify-between p-2.5 rounded-xl bg-white/[0.04] border border-white/10">
+              <div class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-white/80" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 3a9 9 0 00-9 9v7c0 1.1.9 2 2 2h2a2 2 0 002-2v-4a2 2 0 00-2-2H5v-1a7 7 0 0114 0v1h-2a2 2 0 00-2 2v4a2 2 0 002 2h2c1.1 0 2-.9 2-2v-7a9 9 0 00-9-9z"/>
+                </svg>
+                <span class="text-xs font-medium text-white">AirPods Pro</span>
+              </div>
+              <span class="text-xs font-mono text-neutral-400">88%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 6: Mindful Hydration Milestones (1 Column) -->
+      <div class="rounded-3xl p-6 sm:p-8 bg-[#0c0d13]/90 border border-white/[0.08] hover:border-white/[0.18] transition-all duration-300 relative overflow-hidden flex flex-col justify-between group shadow-[0_12px_40px_rgba(0,0,0,0.5)]">
+        <div class="absolute -right-10 -bottom-10 w-60 h-60 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-cyan-500/15 transition-all"></div>
+        <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none"></div>
+
+        <div class="relative z-10 mb-6">
+          <span class="inline-block text-[11px] font-mono uppercase tracking-wider text-cyan-400 mb-2">
+            {tEn.items[5].tag}
+          </span>
+          <h3 class="text-xl font-semibold text-white tracking-tight mb-2" data-en={tEn.items[5].title} data-id={tId.items[5].title}>
+            {tEn.items[5].title}
+          </h3>
+          <p class="text-sm text-neutral-400 leading-relaxed font-normal" data-en={tEn.items[5].desc} data-id={tId.items[5].desc}>
+            {tEn.items[5].desc}
+          </p>
+        </div>
+
+        <!-- Visual Miniature: Hydration Meter Pill -->
+        <div class="relative z-10 w-full pt-2">
+          <div class="rounded-2xl bg-black/70 border border-white/[0.08] p-4 flex flex-col items-center">
+            <div class="flex items-center gap-2 mb-2.5">
+              <svg class="w-4 h-4 text-cyan-400 fill-current" viewBox="0 0 24 24">
+                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
+              </svg>
+              <span class="text-lg font-mono font-bold text-white tracking-tight">1.5 L</span>
+              <span class="text-xs font-mono text-neutral-400">/ 2.0 L</span>
+            </div>
+            <!-- 8 Glass segments -->
+            <div class="grid grid-cols-8 gap-1.5 w-full mb-2">
+              <span class="h-2 rounded-full bg-cyan-400"></span>
+              <span class="h-2 rounded-full bg-cyan-400"></span>
+              <span class="h-2 rounded-full bg-cyan-400"></span>
+              <span class="h-2 rounded-full bg-cyan-400"></span>
+              <span class="h-2 rounded-full bg-cyan-400"></span>
+              <span class="h-2 rounded-full bg-cyan-400"></span>
+              <span class="h-2 rounded-full bg-white/10"></span>
+              <span class="h-2 rounded-full bg-white/10"></span>
+            </div>
+            <span class="text-[10px] font-mono text-neutral-400">Next reminder in 24m</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 7: Apple Silicon Hardware Telemetry (Large - 2 Columns) -->
+      <div class="md:col-span-2 lg:col-span-2 rounded-3xl p-6 sm:p-8 bg-[#0c0d13]/90 border border-white/[0.08] hover:border-white/[0.18] transition-all duration-300 relative overflow-hidden flex flex-col justify-between group shadow-[0_12px_40px_rgba(0,0,0,0.5)]">
+        <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-indigo-500/15 transition-all"></div>
+        <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none"></div>
+
+        <div class="relative z-10 mb-8 max-w-xl">
+          <span class="inline-block text-[11px] font-mono uppercase tracking-wider text-indigo-400 mb-2">
+            {tEn.items[6].tag}
+          </span>
+          <h3 class="text-xl sm:text-2xl font-semibold text-white tracking-tight mb-2" data-en={tEn.items[6].title} data-id={tId.items[6].title}>
+            {tEn.items[6].title}
+          </h3>
+          <p class="text-sm text-neutral-400 leading-relaxed font-normal" data-en={tEn.items[6].desc} data-id={tId.items[6].desc}>
+            {tEn.items[6].desc}
+          </p>
+        </div>
+
+        <!-- Visual Miniature: Apple Silicon Telemetry Cockpit -->
+        <div class="relative z-10 w-full pt-2">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <!-- Metric 1: Unified CPU Load -->
+            <div class="p-4 rounded-2xl bg-black/70 border border-white/[0.08]">
+              <div class="flex items-center justify-between text-neutral-400 mb-1.5">
+                <span class="text-[11px] font-mono uppercase">CPU Load</span>
+                <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+              </div>
+              <div class="text-2xl font-mono font-bold text-white mb-2">12%</div>
+              <div class="w-full h-1.5 rounded-full bg-white/10 overflow-hidden">
+                <div class="h-full bg-blue-400 w-[12%] rounded-full"></div>
+              </div>
+              <span class="block text-[10px] font-mono text-neutral-500 mt-2">M-Series Cores</span>
+            </div>
+
+            <!-- Metric 2: Memory Pressure -->
+            <div class="p-4 rounded-2xl bg-black/70 border border-white/[0.08]">
+              <div class="flex items-center justify-between text-neutral-400 mb-1.5">
+                <span class="text-[11px] font-mono uppercase">RAM Pressure</span>
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+              </div>
+              <div class="text-2xl font-mono font-bold text-white mb-2">5.8 GB</div>
+              <div class="w-full h-1.5 rounded-full bg-white/10 overflow-hidden">
+                <div class="h-full bg-emerald-400 w-[32%] rounded-full"></div>
+              </div>
+              <span class="block text-[10px] font-mono text-neutral-500 mt-2">Nominal Pressure</span>
+            </div>
+
+            <!-- Metric 3: Thermals & Battery -->
+            <div class="p-4 rounded-2xl bg-black/70 border border-white/[0.08]">
+              <div class="flex items-center justify-between text-neutral-400 mb-1.5">
+                <span class="text-[11px] font-mono uppercase">Efficiency</span>
+                <span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span>
+              </div>
+              <div class="text-2xl font-mono font-bold text-white mb-2">36°C</div>
+              <div class="w-full h-1.5 rounded-full bg-white/10 overflow-hidden">
+                <div class="h-full bg-teal-400 w-[98%] rounded-full"></div>
+              </div>
+              <span class="block text-[10px] font-mono text-neutral-500 mt-2">Fan 0 RPM • Silent</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>

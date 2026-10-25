@@ -202,49 +202,44 @@ export const translations: Record<'en' | 'id', Translations> = {
       }
     },
     moreUtilities: {
-      badge: "Built-in Utilities",
-      title: "Everything you glance at, all in one place.",
-      subtitle: "Hover near the notch to open, move away to close. Nothing to configure or pin.",
+      badge: "Engineered for Mac",
+      title: "Your MacBook display. More capable than ever.",
+      subtitle: "Engineered around your Mac's physical hardware contours to bring fluid file staging, instant controls, and daily workflow essentials right where your eyes already rest.",
       items: [
         {
-          title: "Music from any player",
-          desc: "Spotify, Apple Music, YouTube in browser: view playing track, skip, pause, and seek without switching windows.",
-          tag: "Music"
+          title: "Fluid File Staging at the Screen Bezel",
+          desc: "Drag screenshots, documents, or assets directly into the notch to hold them while switching spaces, then release them into chats, emails, or folders.",
+          tag: "Drop Shelf"
         },
         {
-          title: "Synced lyrics",
-          desc: "Click the lyrics button, the notch splits in two, and each line highlights in real-time as it's sung. Click any line to jump directly to it.",
-          tag: "Lyrics"
+          title: "Audio Control & Synced Lyrics",
+          desc: "Glanceable playback controls with real-time line-by-line lyrics for Apple Music, Spotify, and browser media without switching windows.",
+          tag: "Media Engine"
         },
         {
-          title: "Focus timer",
-          desc: "Start a Pomodoro session and track the countdown right in the notch. A subtle chime notifies you when it's time for a break.",
-          tag: "Focus"
+          title: "Structured Focus Intervals",
+          desc: "Customizable 25-minute Pomodoro sprints with gentle chimes and digital countdown right at the top of your display.",
+          tag: "Deep Focus"
         },
         {
-          title: "Hydration reminder",
-          desc: "Set your bottle volume and daily goal. Notchify reminds you during active hours and keeps track of your daily intake.",
-          tag: "Health"
+          title: "Instant Clipboard Memory",
+          desc: "Retrieve recent snippets, copied links, and color values with one click without opening a separate clipboard manager.",
+          tag: "Clipboard"
         },
         {
-          title: "File shelf",
-          desc: "Drag files to the notch to hold them temporarily, then drag them out into chats, emails, or another folder.",
-          tag: "Shelf"
-        },
-        {
-          title: "To-dos with reminders",
-          desc: "Jot down tasks, schedule deadlines, and the notch gently alerts you when the time arrives.",
-          tag: "Tasks"
-        },
-        {
-          title: "Volume, brightness, and HUD",
-          desc: "Sleek indicators for volume and display brightness, plus subtle heads-up banners for Caps Lock and input source changes.",
-          tag: "System HUD"
-        },
-        {
-          title: "Battery, Wi-Fi, and audio",
-          desc: "Instant glanceable banners when your charger is connected, network drops, or earbuds connect.",
+          title: "Peripherals & Battery HUD",
+          desc: "Glanceable status pills when AirPods connect, charger is plugged in, or sound output changes.",
           tag: "Peripherals"
+        },
+        {
+          title: "Mindful Hydration Milestones",
+          desc: "Gentle hydration milestones during active working hours to keep you energized at your desk.",
+          tag: "Wellness"
+        },
+        {
+          title: "Real-Time Apple Silicon Telemetry",
+          desc: "Live unified CPU activity, memory pressure (RAM), and thermal status engineered specifically for Apple Silicon efficiency.",
+          tag: "Apple Silicon"
         }
       ]
     },
@@ -444,49 +439,44 @@ export const translations: Record<'en' | 'id', Translations> = {
       }
     },
     moreUtilities: {
-      badge: "Utilitas Lengkap",
-      title: "Semua yang sering kamu lirik, di satu tempat.",
-      subtitle: "Arahkan kursor ke notch untuk membukanya, dan menjauh untuk menutupnya. Tidak ada yang perlu diatur atau disematkan.",
+      badge: "Dibuat Khusus untuk Mac",
+      title: "Layar MacBook Anda, kini jauh lebih berguna.",
+      subtitle: "Notchify memanfaatkan lekukan perangkat keras Mac untuk menghadirkan kendali instan, ruang singgah berkas, dan produktivitas harian—tepat di garis pandang mata Anda.",
       items: [
         {
-          title: "Musik dari pemutar apa pun",
-          desc: "Spotify, Apple Music, YouTube di browser: lihat lagu yang diputar, ganti lagu, jeda, dan geser posisi lagu tanpa pindah jendela.",
-          tag: "Musik"
+          title: "Ruang Singgah Berkas di Bezel Layar",
+          desc: "Seret screenshot, dokumen, atau aset ke notch untuk menahannya saat berpindah ruang kerja, lalu lepaskan langsung ke chat atau folder tujuan.",
+          tag: "Drop Shelf"
         },
         {
-          title: "Lirik tersinkron",
-          desc: "Klik tombol lirik, notch terbagi dua, dan setiap baris menyala saat dinyanyikan. Klik satu baris untuk melompat ke bagian itu.",
-          tag: "Lirik"
+          title: "Kendali Audio & Lirik Real-Time",
+          desc: "Kendalikan pemutaran Spotify, Apple Music, atau YouTube dengan tampilan lirik baris-per-baris tanpa perlu membuka jendela pemutar.",
+          tag: "Media Engine"
         },
         {
-          title: "Timer fokus",
-          desc: "Mulai sesi Pomodoro dan lihat hitung mundurnya di notch. Bunyi lembut memberi tahu kapan waktunya istirahat.",
+          title: "Ritme Fokus Pomodoro",
+          desc: "Jalankan interval kerja produktif 25 menit dengan hitung mundur digital dan lonceng istirahat halus langsung di atas layar Anda.",
           tag: "Fokus"
         },
         {
-          title: "Pengingat minum",
-          desc: "Atur ukuran botol dan target harianmu. Notchify mengingatkan di jam aktifmu dan mencatat berapa banyak yang sudah kamu minum.",
+          title: "Riwayat Papan Klip Cepat",
+          desc: "Akses cuplikan teks dan kode warna yang baru disalin dalam satu klik, tanpa aplikasi clipboard terpisah.",
+          tag: "Papan Klip"
+        },
+        {
+          title: "Status Perangkat & Pengisian Daya",
+          desc: "Pemberitahuan hening saat AirPods tersambung, persentase daya baterai saat charger dicolok, atau perubahan output audio.",
+          tag: "Periferal"
+        },
+        {
+          title: "Pengingat Hidrasi Harian",
+          desc: "Tetapkan target minum harian dengan pengingat ramah selama jam kerja aktif di Mac Anda.",
           tag: "Kesehatan"
         },
         {
-          title: "Rak file (Shelf)",
-          desc: "Seret file ke notch untuk menyimpannya sementara, lalu seret keluar ke chat, email, atau folder lain.",
-          tag: "Rak File"
-        },
-        {
-          title: "To-do dengan pengingat",
-          desc: "Catat tugas, beri waktu, dan notch akan mengingatkanmu saat waktunya tiba.",
-          tag: "Tugas"
-        },
-        {
-          title: "Volume, kecerahan, dan tombol",
-          desc: "Tampilan rapi untuk volume dan kecerahan, plus pemberitahuan saat Caps Lock menyala atau bahasa keyboard berganti.",
-          tag: "HUD Sistem"
-        },
-        {
-          title: "Baterai, Wi-Fi, dan headphone",
-          desc: "Pemberitahuan singkat saat charger dicolok, koneksi terputus, atau earbuds tersambung.",
-          tag: "Perangkat"
+          title: "Telemetri Apple Silicon Real-Time",
+          desc: "Pantau beban kerja unified CPU, tekanan memori (RAM), dan konsumsi daya M-series secara hening dengan konsumsi daya baterai mendekati nol.",
+          tag: "Apple Silicon"
         }
       ]
     },
