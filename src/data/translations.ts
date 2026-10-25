@@ -4,6 +4,7 @@ export interface Translations {
     demo: string;
     specs: string;
     permissions: string;
+    changelog: string;
     faq: string;
     download: string;
     github: string;
@@ -112,6 +113,26 @@ export interface Translations {
     minOs: string;
     arch: string;
     license: string;
+    previousVersionsTitle: string;
+    previousVersionsSubtitle: string;
+    viewChangelogBtn: string;
+    allReleasesGithub: string;
+    noPreviousYet: string;
+  };
+  changelog: {
+    badge: string;
+    title: string;
+    subtitle: string;
+    latestBadge: string;
+    previousBadge: string;
+    downloadDmg: string;
+    viewOnGithub: string;
+    releaseNotesTitle: string;
+    noPreviousReleases: string;
+    features: Array<{
+      category: string;
+      desc: string;
+    }>;
   };
   footer: {
     desc: string;
@@ -129,6 +150,7 @@ export const translations: Record<'en' | 'id', Translations> = {
       demo: "Live Preview",
       specs: "Specs",
       permissions: "Permissions",
+      changelog: "Changelog",
       faq: "FAQ",
       download: "Download .dmg",
       github: "GitHub",
@@ -351,6 +373,56 @@ export const translations: Record<'en' | 'id', Translations> = {
       minOs: "macOS 12.0 Monterey to Latest",
       arch: "Universal (Apple Silicon & Intel)",
       license: "MIT Open Source",
+      previousVersionsTitle: "Looking for earlier builds?",
+      previousVersionsSubtitle: "Access previous stable releases and installation packages.",
+      viewChangelogBtn: "Explore Changelog",
+      allReleasesGithub: "GitHub Releases Archive",
+      noPreviousYet: "v1.0.0 is the initial release. Previous versions will automatically appear here as new updates are published.",
+    },
+    changelog: {
+      badge: "Release Notes",
+      title: "Version History & Changelog",
+      subtitle: "Explore what's new, updated, and refined across all Notchify versions.",
+      latestBadge: "Latest Release",
+      previousBadge: "Previous Versions",
+      downloadDmg: "Download .dmg",
+      viewOnGithub: "View Release on GitHub",
+      releaseNotesTitle: "Release Highlights",
+      noPreviousReleases: "v1.0.0 is the initial public release. Previous versions will automatically be listed here as new updates are published.",
+      features: [
+        {
+          category: "Media & Synced Lyrics",
+          desc: "Universal controls for Spotify, Apple Music, and web players with karaoke-style synchronized lyrics (<0.4s) and dynamic ambient art glow."
+        },
+        {
+          category: "Smart Clipboard Manager",
+          desc: "Live text search, snippet pinning, and automatic data detection for colors, web URLs, emails, and currencies."
+        },
+        {
+          category: "Drop Zone Shelf",
+          desc: "Drag-and-drop holding shelf near the notch with native macOS AirDrop, Mail, and Messages sharing."
+        },
+        {
+          category: "Focus Pomodoro Timer",
+          desc: "Customizable focus/break intervals, detached dynamic pill overlay, and native macOS audio chime notifications."
+        },
+        {
+          category: "Camera Mirror & HD Recorder",
+          desc: "Instant pre-meeting camera preview with warm virtual ring light and in-tab HD video recording."
+        },
+        {
+          category: "System & Network Monitor",
+          desc: "Real-time CPU, RAM, battery telemetry, and a high-precision live download/upload network speedometer."
+        },
+        {
+          category: "Interactive Notch Companion",
+          desc: "Expressive dynamic mascot with 120 BPM head-bob music rhythm and activity-aware idle detection."
+        },
+        {
+          category: "Universal 2 Architecture",
+          desc: "Natively compiled for Apple Silicon (M1/M2/M3/M4) and Intel Macs on macOS 12.0 Monterey to latest."
+        }
+      ]
     },
     footer: {
       desc: "Notchify is an independent open-source utility bringing dynamic desktop overlay features to macOS.",
@@ -366,6 +438,7 @@ export const translations: Record<'en' | 'id', Translations> = {
       demo: "Pratinjau",
       specs: "Spesifikasi",
       permissions: "Izin & Privasi",
+      changelog: "Changelog",
       faq: "FAQ",
       download: "Unduh .dmg",
       github: "GitHub",
@@ -588,6 +661,56 @@ export const translations: Record<'en' | 'id', Translations> = {
       minOs: "macOS 12.0 Monterey hingga Terbaru",
       arch: "Universal (Apple Silicon & Intel)",
       license: "Lisensi MIT",
+      previousVersionsTitle: "Mencari versi rilis sebelumnya?",
+      previousVersionsSubtitle: "Akses versi stabil sebelumnya dan arsip paket instalasi resmi.",
+      viewChangelogBtn: "Lihat Catatan Rilis",
+      allReleasesGithub: "Arsip Rilis GitHub",
+      noPreviousYet: "v1.0.0 adalah rilis perdana. Versi sebelumnya akan otomatis tertera di sini saat rilis berikutnya diluncurkan.",
+    },
+    changelog: {
+      badge: "Catatan Rilis",
+      title: "Riwayat Versi & Catatan Rilis",
+      subtitle: "Pelajari fitur baru, peningkatan performa, dan penyempurnaan di setiap versi Notchify.",
+      latestBadge: "Rilis Terbaru",
+      previousBadge: "Versi Sebelumnya",
+      downloadDmg: "Unduh .dmg",
+      viewOnGithub: "Lihat Rilis di GitHub",
+      releaseNotesTitle: "Sorotan Rilis",
+      noPreviousReleases: "v1.0.0 adalah rilis publik perdana. Versi sebelumnya akan otomatis tertera di sini saat rilis pembaruan berikutnya diterbitkan.",
+      features: [
+        {
+          category: "Media & Lirik Tersinkron",
+          desc: "Kontrol universal untuk Spotify, Apple Music, dan browser dengan lirik karaoke scrolling super cepat (<0,4 detik) dan ambient glow."
+        },
+        {
+          category: "Smart Clipboard Manager",
+          desc: "Pencarian teks instan, pin klip penting, dan deteksi otomatis untuk kode warna, URL web, email, dan mata uang."
+        },
+        {
+          category: "Drop Zone Shelf",
+          desc: "Area penampung seret & lepas berkas di dekat notch dengan integrasi native macOS AirDrop, Mail, dan Pesan."
+        },
+        {
+          category: "Focus Pomodoro Timer",
+          desc: "Interval fokus & istirahat kustom, overlay kapsul melayang yang dinamis, serta notifikasi suara native macOS."
+        },
+        {
+          category: "Camera Mirror & Perekam HD",
+          desc: "Pratinjau kamera instan sebelum rapat dengan virtual ring light hangat dan perekaman video HD langsung dari tab."
+        },
+        {
+          category: "System & Network Monitor",
+          desc: "Telemetri CPU, RAM, dan baterai real-time, dilengkapi speedometer presisi tinggi untuk mengukur kecepatan unduh & unggah."
+        },
+        {
+          category: "Maskot Notch Interaktif",
+          desc: "Karakter dinamis responsif dengan goyangan kepala mengikuti ritme musik 120 BPM serta deteksi otomatis saat Mac idle."
+        },
+        {
+          category: "Universal 2 Architecture",
+          desc: "Kompilasi native untuk Mac Apple Silicon (M1/M2/M3/M4) dan prosesor Intel pada macOS 12.0 Monterey hingga versi terbaru."
+        }
+      ]
     },
     footer: {
       desc: "Notchify adalah utilitas desktop independen yang menghadirkan pengalaman overlay dinamis untuk macOS.",

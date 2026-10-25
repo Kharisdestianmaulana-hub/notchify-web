@@ -1,0 +1,362 @@
+---
+import { translations } from '../data/translations';
+const tEn = translations.en.changelog;
+const tId = translations.id.changelog;
+---
+
+<section id="changelog" class="py-20 sm:py-28 md:py-36 relative bg-void overflow-hidden">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-neutral-400 font-mono text-[11px] uppercase tracking-wider mb-4">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+        <span data-en={tEn.badge} data-id={tId.badge}>{tEn.badge}</span>
+      </div>
+      <h2 class="text-3xl sm:text-5xl font-bold text-white tracking-tight mb-4" data-en={tEn.title} data-id={tId.title}>
+        {tEn.title}
+      </h2>
+      <p class="text-base sm:text-lg text-neutral-400 font-normal leading-relaxed" data-en={tEn.subtitle} data-id={tId.subtitle}>
+        {tEn.subtitle}
+      </p>
+    </div>
+
+    <!-- Latest Release Featured Card -->
+    <div id="latest-release-card" class="rounded-3xl bg-[#0a0a0d] border border-white/[0.08] hover:border-white/[0.18] transition-all relative overflow-hidden shadow-2xl p-6 sm:p-10 mb-12">
+      <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none"></div>
+
+      <!-- Release Header -->
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-white/[0.06]">
+        <div class="flex flex-col gap-2">
+          <div class="flex flex-wrap items-center gap-3">
+            <span id="latest-release-tag" class="text-2xl sm:text-3xl font-bold font-mono text-white tracking-tight">
+              v1.0.0
+            </span>
+            <span id="latest-release-badge" class="px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+              <span data-en={tEn.latestBadge} data-id={tId.latestBadge}>{tEn.latestBadge}</span>
+            </span>
+            <span id="latest-release-asset-size" class="text-xs font-mono text-neutral-400 bg-white/[0.04] px-2.5 py-0.5 rounded-full border border-white/[0.06]">
+              8.73 MB
+            </span>
+          </div>
+          <div class="flex items-center gap-2 text-xs font-mono text-neutral-500">
+            <span id="latest-release-date" data-en="Released on October 25, 2026" data-id="Dirilis pada 25 Oktober 2026">
+              Released on October 25, 2026
+            </span>
+            <span>•</span>
+            <span data-en="Universal Binary (Apple Silicon & Intel)" data-id="Universal Binary (Apple Silicon & Intel)">
+              Universal Binary (Apple Silicon & Intel)
+            </span>
+          </div>
+        </div>
+
+        <!-- Release Actions -->
+        <div class="flex flex-wrap items-center gap-3">
+          <a
+            id="latest-release-download"
+            href="https://github.com/Kharisdestianmaulana-hub/notchify/releases/download/v1.0.0/Notchify.dmg"
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-medium bg-white text-neutral-950 hover:bg-neutral-200 transition-colors shadow-sm"
+          >
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+              <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/>
+            </svg>
+            <span data-en={tEn.downloadDmg} data-id={tId.downloadDmg}>{tEn.downloadDmg}</span>
+          </a>
+
+          <a
+            id="latest-release-gh-link"
+            href="https://github.com/Kharisdestianmaulana-hub/notchify/releases/tag/v1.0.0"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs font-medium bg-white/[0.04] border border-white/10 text-neutral-300 hover:text-white hover:border-white/20 transition-all"
+          >
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+            <span data-en={tEn.viewOnGithub} data-id={tId.viewOnGithub}>{tEn.viewOnGithub}</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Release Highlights Grid (Pre-rendered for v1.0.0) -->
+      <div class="pt-8">
+        <h3 class="text-xs uppercase font-mono tracking-wider text-neutral-400 mb-6 flex items-center gap-2" data-en={tEn.releaseNotesTitle} data-id={tId.releaseNotesTitle}>
+          <span>{tEn.releaseNotesTitle}</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-white/20"></span>
+          <span class="text-neutral-500 font-normal">v1.0.0 Official Launch</span>
+        </h3>
+
+        <div id="latest-release-features-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {tEn.features.map((feat, idx) => (
+            <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-white/[0.12] transition-colors flex flex-col justify-between">
+              <div>
+                <span class="text-xs font-semibold text-white tracking-tight block mb-1.5" data-en={feat.category} data-id={tId.features[idx].category}>
+                  {feat.category}
+                </span>
+                <p class="text-[12px] text-neutral-400 leading-relaxed font-normal" data-en={feat.desc} data-id={tId.features[idx].desc}>
+                  {feat.desc}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Previous Releases Timeline / Archive Section -->
+    <div class="rounded-3xl bg-[#0a0a0d] border border-white/[0.08] p-6 sm:p-8 relative overflow-hidden shadow-xl">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/[0.06] mb-6">
+        <div>
+          <h3 class="text-lg font-semibold text-white tracking-tight" data-en={tEn.previousBadge} data-id={tId.previousBadge}>
+            {tEn.previousBadge}
+          </h3>
+          <p class="text-xs text-neutral-400 mt-1" data-en="Archived builds and previous release notes" data-id="Arsip versi rilis dan catatan pembaruan sebelumnya">
+            Archived builds and previous release notes
+          </p>
+        </div>
+
+        <a
+          href="https://github.com/Kharisdestianmaulana-hub/notchify/releases"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1.5 text-xs text-neutral-400 hover:text-white transition-colors"
+        >
+          <span data-en="View Full GitHub Archive" data-id="Lihat Arsip Lengkap di GitHub">View Full GitHub Archive</span>
+          <svg class="w-3.5 h-3.5 fill-none stroke-current" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Container for dynamically rendered previous releases -->
+      <div id="previous-releases-list" class="space-y-4">
+        <!-- Default State when only 1 release exists -->
+        <div id="no-previous-placeholder" class="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.04] text-center">
+          <p class="text-xs text-neutral-400 font-normal leading-relaxed" data-en={tEn.noPreviousReleases} data-id={tId.noPreviousReleases}>
+            {tEn.noPreviousReleases}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Dynamic GitHub Releases Synchronizer Script -->
+<script is:inline>
+  (function() {
+    const REPO = 'Kharisdestianmaulana-hub/notchify';
+    const API_URL = `https://api.github.com/repos/${REPO}/releases`;
+
+    function formatDate(isoStr, lang) {
+      if (!isoStr) return '';
+      const date = new Date(isoStr);
+      if (isNaN(date.getTime())) return isoStr;
+
+      const isId = lang === 'id';
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      const formatted = date.toLocaleDateString(isId ? 'id-ID' : 'en-US', options);
+      return isId ? `Dirilis pada ${formatted}` : `Released on ${formatted}`;
+    }
+
+    function formatBytes(bytes) {
+      if (!bytes || bytes <= 0) return '';
+      const mb = (bytes / (1024 * 1024)).toFixed(2);
+      return `${mb} MB`;
+    }
+
+    function renderReleases(releases) {
+      if (!Array.isArray(releases) || releases.length === 0) return;
+
+      const lang = document.documentElement.getAttribute('data-lang') || 'en';
+      const isId = lang === 'id';
+
+      // Filter non-draft releases
+      const published = releases.filter(r => !r.draft);
+      if (published.length === 0) return;
+
+      // 1. Update Latest Release Header with live API data
+      const latest = published[0];
+      const tagEl = document.getElementById('latest-release-tag');
+      const dateEl = document.getElementById('latest-release-date');
+      const dlBtn = document.getElementById('latest-release-download');
+      const ghLink = document.getElementById('latest-release-gh-link');
+      const sizeEl = document.getElementById('latest-release-asset-size');
+
+      if (tagEl && latest.tag_name) {
+        tagEl.textContent = latest.tag_name;
+      }
+
+      if (dateEl && latest.published_at) {
+        dateEl.textContent = formatDate(latest.published_at, lang);
+      }
+
+      if (ghLink && latest.html_url) {
+        ghLink.setAttribute('href', latest.html_url);
+      }
+
+      const dmgAsset = latest.assets ? latest.assets.find(a => a.name && a.name.toLowerCase().endsWith('.dmg')) : null;
+      if (dmgAsset && dlBtn) {
+        dlBtn.setAttribute('href', dmgAsset.browser_download_url);
+        if (sizeEl && dmgAsset.size) {
+          sizeEl.textContent = formatBytes(dmgAsset.size);
+        }
+      }
+
+      // 2. Render Previous Releases (releases.slice(1))
+      const prevContainer = document.getElementById('previous-releases-list');
+      const noPrevPlaceholder = document.getElementById('no-previous-placeholder');
+
+      const olderReleases = published.slice(1);
+
+      if (prevContainer) {
+        if (olderReleases.length === 0) {
+          if (noPrevPlaceholder) {
+            noPrevPlaceholder.style.display = 'block';
+          }
+        } else {
+          if (noPrevPlaceholder) {
+            noPrevPlaceholder.style.display = 'none';
+          }
+
+          // Build older releases HTML
+          prevContainer.innerHTML = '';
+          olderReleases.forEach(rel => {
+            const relDmg = rel.assets ? rel.assets.find(a => a.name && a.name.toLowerCase().endsWith('.dmg')) : null;
+            const card = document.createElement('div');
+            card.className = 'p-5 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-white/[0.12] transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-4';
+
+            const dlCount = relDmg && relDmg.download_count ? `<span class="text-neutral-500">• ${relDmg.download_count.toLocaleString()} ${isId ? 'unduhan' : 'downloads'}</span>` : '';
+            const sizeBadge = relDmg && relDmg.size ? `<span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/[0.04] text-neutral-400 border border-white/[0.06]">${formatBytes(relDmg.size)}</span>` : '';
+
+            card.innerHTML = `
+              <div class="flex flex-col gap-1.5">
+                <div class="flex items-center gap-2.5 flex-wrap">
+                  <span class="text-base font-bold font-mono text-white">${rel.tag_name || 'v1.x'}</span>
+                  ${sizeBadge}
+                  <span class="text-xs font-mono text-neutral-500">${formatDate(rel.published_at, lang)}</span>
+                  ${dlCount}
+                </div>
+                <div class="text-xs text-neutral-400 font-normal line-clamp-2 max-w-2xl">
+                  ${rel.name || (isId ? 'Pembaruan rilis Notchify' : 'Notchify release update')}
+                </div>
+              </div>
+
+              <div class="flex items-center gap-2.5 flex-shrink-0">
+                ${relDmg ? `
+                  <a
+                    href="${relDmg.browser_download_url}"
+                    class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/[0.08] hover:bg-white text-white hover:text-neutral-950 border border-white/10 transition-all shadow-sm"
+                  >
+                    <span>.dmg</span>
+                  </a>
+                ` : ''}
+                <a
+                  href="${rel.html_url}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium bg-white/[0.03] hover:bg-white/[0.08] text-neutral-400 hover:text-white border border-white/[0.06] transition-colors"
+                >
+                  <span>Notes</span>
+                  <svg class="w-3 h-3 fill-none stroke-current" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
+            `;
+            prevContainer.appendChild(card);
+          });
+        }
+      }
+
+      // 3. Populate Previous Releases inside DownloadSection.astro
+      const dlSecContainer = document.getElementById('download-previous-releases');
+      if (dlSecContainer) {
+        if (olderReleases.length === 0) {
+          dlSecContainer.innerHTML = `
+            <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/[0.06] text-center text-xs text-neutral-500 font-mono">
+              ${isId ? 'v1.0.0 adalah rilis perdana. Versi rilis lama akan otomatis tertera di sini saat rilis berikutnya diluncurkan.' : 'v1.0.0 is the initial release. Older versions will automatically appear here once newer builds are published.'}
+            </div>
+          `;
+        } else {
+          dlSecContainer.innerHTML = '';
+          olderReleases.slice(0, 3).forEach(rel => {
+            const relDmg = rel.assets ? rel.assets.find(a => a.name && a.name.toLowerCase().endsWith('.dmg')) : null;
+            const row = document.createElement('div');
+            row.className = 'p-3 rounded-xl bg-white/[0.02] border border-white/[0.06] flex items-center justify-between gap-3 text-left';
+            row.innerHTML = `
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-mono font-bold text-white">${rel.tag_name}</span>
+                <span class="text-[11px] font-mono text-neutral-500">${formatDate(rel.published_at, lang)}</span>
+              </div>
+              <div class="flex items-center gap-2">
+                ${relDmg ? `<a href="${relDmg.browser_download_url}" class="px-2.5 py-1 rounded-full text-[11px] font-medium bg-white/[0.08] hover:bg-white text-neutral-300 hover:text-black border border-white/10 transition-colors">Unduh .dmg</a>` : ''}
+              </div>
+            `;
+            dlSecContainer.appendChild(row);
+          });
+        }
+      }
+    }
+
+    // Cache releases locally to avoid duplicate network calls
+    let cachedReleases = null;
+
+    fetch(API_URL)
+      .then(res => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
+      .then(releases => {
+        cachedReleases = releases;
+        renderReleases(releases);
+      })
+      .catch(err => {
+        console.log('GitHub releases fetcher info:', err.message);
+      });
+
+    // Re-render strings when language changes
+    window.addEventListener('langchange', () => {
+      if (cachedReleases) {
+        renderReleases(cachedReleases);
+      }
+    });
+
+    // Browser testing preview hook
+    window.__simulateMultiReleasePreview = function() {
+      const mockReleases = [
+        {
+          tag_name: 'v1.1.0',
+          name: 'Notchify v1.1.0 — Enhanced Animations & Audio Visualizer',
+          draft: false,
+          published_at: new Date().toISOString(),
+          html_url: 'https://github.com/Kharisdestianmaulana-hub/notchify/releases/tag/v1.0.0',
+          assets: [
+            {
+              name: 'Notchify.dmg',
+              size: 8945600,
+              download_count: 512,
+              browser_download_url: 'https://github.com/Kharisdestianmaulana-hub/notchify/releases/download/v1.0.0/Notchify.dmg'
+            }
+          ]
+        },
+        {
+          tag_name: 'v1.0.0',
+          name: 'Notchify v1.0.0 — Dynamic Island for macOS (Universal Binary)',
+          draft: false,
+          published_at: '2026-10-25T14:42:32Z',
+          html_url: 'https://github.com/Kharisdestianmaulana-hub/notchify/releases/tag/v1.0.0',
+          assets: [
+            {
+              name: 'Notchify.dmg',
+              size: 8731279,
+              download_count: 240,
+              browser_download_url: 'https://github.com/Kharisdestianmaulana-hub/notchify/releases/download/v1.0.0/Notchify.dmg'
+            }
+          ]
+        }
+      ];
+      renderReleases(mockReleases);
+      console.log('%c[Notchify] Multi-release simulation preview active!', 'color: #30D158; font-weight: bold;');
+    };
+  })();
+</script>
