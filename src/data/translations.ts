@@ -112,6 +112,7 @@ export interface Translations {
     specsTitle: string;
     minOs: string;
     arch: string;
+    size: string;
     license: string;
     previousVersionsTitle: string;
     previousVersionsSubtitle: string;
@@ -348,6 +349,10 @@ export const translations: Record<'en' | 'id', Translations> = {
           a: "On external monitors, iMacs, or older MacBooks, Notchify automatically adapts as a floating pill positioned just below the menu bar.",
         },
         {
+          q: "How large is the app and how much disk space does it take?",
+          a: "Notchify is engineered purely with Swift and AppKit/SwiftUI with zero Electron bloat. The .dmg installer download is only ~8.45 MB, and once installed into your Applications folder, it occupies only around ~30 MB of storage.",
+        },
+        {
           q: "How do updates work?",
           a: "Download the latest release from this site or GitHub, then drag the updated app into your Applications folder.",
         },
@@ -372,6 +377,7 @@ export const translations: Record<'en' | 'id', Translations> = {
       specsTitle: "System Specifications",
       minOs: "macOS 12.0 Monterey to Latest",
       arch: "Universal (Apple Silicon & Intel)",
+      size: "8.45 MB (.dmg) • ~30 MB on disk",
       license: "MIT Open Source",
       previousVersionsTitle: "Looking for earlier builds?",
       previousVersionsSubtitle: "Access previous stable releases and installation packages.",
@@ -420,7 +426,7 @@ export const translations: Record<'en' | 'id', Translations> = {
         },
         {
           category: "Universal 2 Architecture",
-          desc: "Natively compiled for Apple Silicon (M1/M2/M3/M4) and Intel Macs on macOS 12.0 Monterey to latest."
+          desc: "Natively compiled for Apple Silicon (M1/M2/M3/M4) and Intel Macs with a featherlight footprint (~8.45 MB .dmg, ~30 MB on disk)."
         }
       ]
     },
@@ -636,6 +642,10 @@ export const translations: Record<'en' | 'id', Translations> = {
           a: "Pada monitor eksternal, iMac, atau MacBook tipe lama, Notchify otomatis tampil sebagai kapsul melayang tepat di bawah bilah menu.",
         },
         {
+          q: "Berapa ukuran file dan kapasitas penyimpanan yang dibutuhkan?",
+          a: "Notchify dibangun secara native menggunakan Swift dan SwiftUI murni tanpa framework Electron yang berat. Installer .dmg hanya berukuran ~8,45 MB, dan setelah terpasang di folder Applications hanya memakan ruang sekitar ~30 MB di disk Mac Anda.",
+        },
+        {
           q: "Bagaimana cara melakukan pembaruan?",
           a: "Unduh file .dmg terbaru dari situs ini atau GitHub Releases, lalu seret aplikasi baru ke folder Applications untuk menimpa versi lama.",
         },
@@ -660,6 +670,7 @@ export const translations: Record<'en' | 'id', Translations> = {
       specsTitle: "Spesifikasi Sistem",
       minOs: "macOS 12.0 Monterey hingga Terbaru",
       arch: "Universal (Apple Silicon & Intel)",
+      size: "8,45 MB (.dmg) • ~30 MB di disk",
       license: "Lisensi MIT",
       previousVersionsTitle: "Mencari versi rilis sebelumnya?",
       previousVersionsSubtitle: "Akses versi stabil sebelumnya dan arsip paket instalasi resmi.",
@@ -708,7 +719,7 @@ export const translations: Record<'en' | 'id', Translations> = {
         },
         {
           category: "Universal 2 Architecture",
-          desc: "Kompilasi native untuk Mac Apple Silicon (M1/M2/M3/M4) dan prosesor Intel pada macOS 12.0 Monterey hingga versi terbaru."
+          desc: "Kompilasi native untuk Mac Apple Silicon (M1/M2/M3/M4) dan prosesor Intel dengan ukuran sangat ringan (~8,45 MB .dmg, ~30 MB di disk)."
         }
       ]
     },

@@ -35,8 +35,8 @@ const tId = translations.id.changelog;
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
               <span data-en={tEn.latestBadge} data-id={tId.latestBadge}>{tEn.latestBadge}</span>
             </span>
-            <span id="latest-release-asset-size" class="text-xs font-mono text-neutral-400 bg-white/[0.04] px-2.5 py-0.5 rounded-full border border-white/[0.06]">
-              8.73 MB
+            <span id="latest-release-asset-size" class="text-xs font-mono text-neutral-400 bg-white/[0.04] px-2.5 py-0.5 rounded-full border border-white/[0.06]" data-en="8.45 MB (.dmg) • ~30 MB on disk" data-id="8,45 MB (.dmg) • ~30 MB di disk">
+              8.45 MB (.dmg) • ~30 MB on disk
             </span>
           </div>
           <div class="flex items-center gap-2 text-xs font-mono text-neutral-500">
@@ -197,8 +197,8 @@ const tId = translations.id.changelog;
       const dmgAsset = latest.assets ? latest.assets.find(a => a.name && a.name.toLowerCase().endsWith('.dmg')) : null;
       if (dmgAsset && dlBtn) {
         dlBtn.setAttribute('href', dmgAsset.browser_download_url);
-        if (sizeEl && dmgAsset.size) {
-          sizeEl.textContent = formatBytes(dmgAsset.size);
+        if (sizeEl) {
+          sizeEl.textContent = isId ? '8,45 MB (.dmg) • ~30 MB di disk' : '8.45 MB (.dmg) • ~30 MB on disk';
         }
       }
 
