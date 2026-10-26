@@ -78,6 +78,20 @@ const tId = translations.id.hero;
       <span id="live-dl-stat">
         <span id="github-dl-count">0+</span> <span data-en={tEn.downloadsCount} data-id={tId.downloadsCount}>{tEn.downloadsCount}</span>
       </span>
+      <span class="hidden sm:inline-block w-1 h-1 rounded-full bg-white/20"></span>
+      <a
+        href="https://github.com/Kharisdestianmaulana-hub/notchify"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1.5 hover:text-white transition-colors group cursor-pointer"
+        title="Star Notchify on GitHub"
+      >
+        <svg class="w-3.5 h-3.5 fill-amber-400 group-hover:scale-110 transition-transform flex-shrink-0" viewBox="0 0 24 24">
+          <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+        </svg>
+        <span id="hero-github-stars-count">1</span>
+        <span data-en={tEn.starsCount} data-id={tId.starsCount}>{tEn.starsCount}</span>
+      </a>
     </div>
   </div>
 
@@ -320,6 +334,22 @@ const tId = translations.id.hero;
         // Network error / rate limit / 404: stay safe in Development state
         console.log('GitHub releases fetch: Project remains in Development state.', err);
       });
+
+    // Fetch GitHub Repo Stargazers
+    const REPO_INFO_URL = `https://api.github.com/repos/${REPO}`;
+    fetch(REPO_INFO_URL)
+      .then(res => res.ok ? res.json() : null)
+      .then(repo => {
+        if (!repo) return;
+        const stars = repo.stargazers_count ?? 1;
+        const navStars = document.getElementById('nav-github-stars');
+        const mobileStars = document.getElementById('mobile-github-stars');
+        const heroStars = document.getElementById('hero-github-stars-count');
+        if (navStars) navStars.textContent = stars.toLocaleString();
+        if (mobileStars) mobileStars.textContent = stars.toLocaleString();
+        if (heroStars) heroStars.textContent = stars.toLocaleString();
+      })
+      .catch(() => {});
 
     // Language switch listener
     window.addEventListener('langchange', updateDOM);

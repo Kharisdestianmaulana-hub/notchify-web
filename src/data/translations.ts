@@ -17,6 +17,7 @@ export interface Translations {
     downloadBtn: string;
     githubBtn: string;
     downloadsCount: string;
+    starsCount: string;
     versionInfo: string;
     universalBadge: string;
     releaseNotice: string;
@@ -135,6 +136,23 @@ export interface Translations {
       desc: string;
     }>;
   };
+  comparison: {
+    badge: string;
+    title: string;
+    subtitle: string;
+    colNotchify: string;
+    colNotchifyTag: string;
+    colPaid: string;
+    colElectron: string;
+    ctaNote: string;
+    ctaBtn: string;
+    rows: Array<{
+      metric: string;
+      notchify: string;
+      paid: string;
+      electron: string;
+    }>;
+  };
   footer: {
     desc: string;
     linksTitle: string;
@@ -164,6 +182,7 @@ export const translations: Record<'en' | 'id', Translations> = {
       downloadBtn: "Download for Mac",
       githubBtn: "Source Code",
       downloadsCount: "downloads",
+      starsCount: "stars on GitHub",
       versionInfo: "Universal Binary (Apple Silicon & Intel)",
       universalBadge: "Open Source",
       releaseNotice: "Direct .dmg download from official GitHub Releases",
@@ -430,6 +449,67 @@ export const translations: Record<'en' | 'id', Translations> = {
         }
       ]
     },
+    comparison: {
+      badge: "Engineering Benchmark",
+      title: "Engineered for pure efficiency.",
+      subtitle: "See how Notchify's native Swift & AppKit architecture delivers a lighter footprint, zero latency, and genuine respect for your Mac's battery.",
+      colNotchify: "Notchify",
+      colNotchifyTag: "Native & Open Source",
+      colPaid: "Paid Notch Apps",
+      colElectron: "Web / Electron Apps",
+      ctaNote: "Ready to experience the fastest, lightest dynamic island on Mac?",
+      ctaBtn: "Download Notchify Free",
+      rows: [
+        {
+          metric: "Architecture & Framework",
+          notchify: "Pure Swift & AppKit / SwiftUI",
+          paid: "Swift / Mixed Frameworks",
+          electron: "Chromium & Node.js Engine"
+        },
+        {
+          metric: "Installer Download (.dmg)",
+          notchify: "8.45 MB (Featherlight)",
+          paid: "30 MB – 80 MB",
+          electron: "150 MB – 300 MB+"
+        },
+        {
+          metric: "Disk Footprint (Installed)",
+          notchify: "~30 MB on disk",
+          paid: "80 MB – 150 MB",
+          electron: "300 MB – 600 MB+"
+        },
+        {
+          metric: "Active RAM Usage",
+          notchify: "~25 MB (Ice Cold)",
+          paid: "60 MB – 120 MB",
+          electron: "250 MB – 500 MB+"
+        },
+        {
+          metric: "Idle CPU & Battery Impact",
+          notchify: "0.0% (Zero background drain)",
+          paid: "0.5% – 2.0%",
+          electron: "2.0% – 5.0% continuous"
+        },
+        {
+          metric: "Integrated Utility Suite",
+          notchify: "7 Utilities in 1 Island",
+          paid: "1–2 Single Tools",
+          electron: "Fragmented per tool"
+        },
+        {
+          metric: "Privacy & Telemetry",
+          notchify: "100% On-Device, Zero Telemetry",
+          paid: "Closed Source / Analytics",
+          electron: "Third-party tracking"
+        },
+        {
+          metric: "Price & License",
+          notchify: "100% Free & Open Source (MIT)",
+          paid: "$15 – $35 / Monthly Sub",
+          electron: "Freemium / Paid Tier"
+        }
+      ]
+    },
     footer: {
       desc: "Notchify is an independent open-source utility bringing dynamic desktop overlay features to macOS.",
       linksTitle: "Resources",
@@ -457,6 +537,7 @@ export const translations: Record<'en' | 'id', Translations> = {
       downloadBtn: "Unduh untuk Mac",
       githubBtn: "Kode Sumber",
       downloadsCount: "unduhan",
+      starsCount: "bintang di GitHub",
       versionInfo: "Universal Binary (Apple Silicon & Intel)",
       universalBadge: "Sumber Terbuka",
       releaseNotice: "Unduhan file .dmg langsung dari rilis resmi GitHub",
@@ -720,6 +801,67 @@ export const translations: Record<'en' | 'id', Translations> = {
         {
           category: "Universal 2 Architecture",
           desc: "Kompilasi native untuk Mac Apple Silicon (M1/M2/M3/M4) dan prosesor Intel dengan ukuran sangat ringan (~8,45 MB .dmg, ~30 MB di disk)."
+        }
+      ]
+    },
+    comparison: {
+      badge: "Tolok Ukur Rekayasa",
+      title: "Dirancang untuk efisiensi murni.",
+      subtitle: "Lihat bagaimana arsitektur native Swift & AppKit Notchify menghadirkan ukuran paling ringan, nol latensi, dan hemat baterai MacBook Anda.",
+      colNotchify: "Notchify",
+      colNotchifyTag: "Native & Open Source",
+      colPaid: "Aplikasi Notch Berbayar",
+      colElectron: "Aplikasi Berbasis Web",
+      ctaNote: "Siap mencoba Dynamic Island paling cepat dan ringan untuk Mac Anda?",
+      ctaBtn: "Unduh Notchify Gratis",
+      rows: [
+        {
+          metric: "Arsitektur & Bahasa",
+          notchify: "SwiftUI & AppKit Murni",
+          paid: "Swift / Campuran Framework",
+          electron: "Engine Chromium & Node.js"
+        },
+        {
+          metric: "Ukuran Installer (.dmg)",
+          notchify: "8,45 MB (Sangat Ringan)",
+          paid: "30 MB – 80 MB",
+          electron: "150 MB – 300 MB+"
+        },
+        {
+          metric: "Ruang Penyimpanan (Terpasang)",
+          notchify: "~30 MB di disk",
+          paid: "80 MB – 150 MB",
+          electron: "300 MB – 600 MB+"
+        },
+        {
+          metric: "Penggunaan RAM Aktif",
+          notchify: "~25 MB (Sangat Dingin)",
+          paid: "60 MB – 120 MB",
+          electron: "250 MB – 500 MB+"
+        },
+        {
+          metric: "Konsumsi Baterai & CPU Idle",
+          notchify: "0.0% (Nol beban latar belakang)",
+          paid: "0,5% – 2,0%",
+          electron: "2,0% – 5,0% terus-menerus"
+        },
+        {
+          metric: "Kelengkapan Utilitas",
+          notchify: "7 Utilitas dalam 1 Notch",
+          paid: "1–2 Fitur Terpisah",
+          electron: "Terpisah per aplikasi"
+        },
+        {
+          metric: "Privasi & Telemetri",
+          notchify: "100% On-Device, Tanpa Telemetri",
+          paid: "Kode Tertutup / Analitik",
+          electron: "Melacak data online"
+        },
+        {
+          metric: "Biaya & Lisensi",
+          notchify: "100% Gratis & Open Source (MIT)",
+          paid: "$15 – $35 / Langganan",
+          electron: "Freemium / In-App Purchase"
         }
       ]
     },
