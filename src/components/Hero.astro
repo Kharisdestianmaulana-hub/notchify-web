@@ -11,11 +11,11 @@ const tId = translations.id.hero;
   </div>
 
   <div class="max-w-4xl mx-auto flex flex-col items-center">
-    <!-- Project Status Badge (Amber pulse for Development, Emerald for Release) -->
+    <!-- Project Status Badge (Emerald for Release) -->
     <div id="hero-status-pill" class="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/10 text-[11px] sm:text-[12px] font-mono font-medium text-neutral-300 mb-6 sm:mb-8 backdrop-blur-md max-w-full">
-      <span id="hero-status-dot" class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse flex-shrink-0"></span>
-      <span id="hero-status-text" data-en={tEn.statusDev} data-id={tId.statusDev}>
-        {tEn.statusDev}
+      <span id="hero-status-dot" class="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0"></span>
+      <span id="hero-status-text" data-en={tEn.statusReleased} data-id={tId.statusReleased}>
+        {tEn.statusReleased}
       </span>
       <span class="text-neutral-600 hidden xs:inline">•</span>
       <span class="hidden xs:inline" data-en={tEn.badge} data-id={tId.badge}>{tEn.badge}</span>
@@ -36,22 +36,21 @@ const tId = translations.id.hero;
 
     <!-- Clean Apple-grade CTAs (No Emojis) -->
     <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-3.5 mb-8 w-full sm:w-auto">
-      <!-- Download Button (Inactive by default in development, activates automatically when GitHub release is published) -->
+      <!-- Download Button (Active for Public Release) -->
       <a
         id="hero-download-btn"
-        href="#download"
-        class="inline-flex items-center justify-center gap-2.5 w-full sm:w-auto max-w-xs sm:max-w-none px-6 sm:px-7 py-3 sm:py-3.5 rounded-full bg-white/[0.07] border border-white/10 text-neutral-400 font-medium text-sm transition-all cursor-not-allowed select-none"
-        aria-disabled="true"
-        title="Notchify masih dalam tahap pengembangan. File .dmg akan otomatis aktif saat rilis publik."
+        href="https://github.com/Kharisdestianmaulana-hub/notchify/releases/latest/download/Notchify.dmg"
+        class="btn-glow inline-flex items-center justify-center gap-2.5 w-full sm:w-auto max-w-xs sm:max-w-none px-6 sm:px-7 py-3 sm:py-3.5 rounded-full bg-white text-void font-semibold text-sm shadow-md hover:bg-neutral-100 transition-all cursor-pointer select-none"
+        title="Download Notchify (.dmg)"
       >
-        <svg class="w-4 h-4 fill-current opacity-60 flex-shrink-0" viewBox="0 0 24 24">
+        <svg class="w-4 h-4 fill-current text-void flex-shrink-0" viewBox="0 0 24 24">
           <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.84c.62-.75 1.04-1.8 0.92-2.84-.9.04-1.99.6-2.64 1.35-.58.67-.99 1.74-.86 2.76.99.08 2.02-.52 2.58-1.27z"/>
         </svg>
-        <span id="hero-download-text" data-en={tEn.downloadDisabled} data-id={tId.downloadDisabled}>
-          {tEn.downloadDisabled}
+        <span id="hero-download-text" data-en={tEn.downloadBtn} data-id={tId.downloadBtn}>
+          {tEn.downloadBtn}
         </span>
-        <span id="hero-version-tag" class="text-[11px] px-2 py-0.5 rounded-full bg-white/[0.06] text-amber-300 font-mono font-medium border border-amber-400/20">
-          {tEn.devVersionTag}
+        <span id="hero-version-tag" class="text-[11px] px-2 py-0.5 rounded-full bg-black/10 text-void font-mono font-bold border-0">
+          v1.0.1
         </span>
       </a>
 
@@ -118,12 +117,13 @@ const tId = translations.id.hero;
     const REPO = 'Kharisdestianmaulana-hub/notchify';
     const API_URL = `https://api.github.com/repos/${REPO}/releases`;
 
-    // Global Release State
+    // Global Release State (default to current public release v1.0.1)
     let releaseState = {
-      isReleased: false,
-      tag: 'v0.1.0-dev',
-      dmgUrl: null,
-      downloadCount: 0,
+      isReleased: true,
+      tag: 'v1.0.1',
+      dmgUrl: 'https://github.com/Kharisdestianmaulana-hub/notchify/releases/latest/download/Notchify.dmg',
+      dmgSize: 8913276,
+      downloadCount: 25,
       releasePageUrl: `https://github.com/${REPO}/releases`
     };
 
@@ -224,6 +224,22 @@ const tId = translations.id.hero;
         if (secNotice) {
           secNotice.textContent = isId ? 'Tombol unduh terhubung langsung ke berkas rilis resmi GitHub.' : 'Download button connects directly to official GitHub Release builds.';
         }
+
+        // Comparison Table & Specs Dynamic Sync
+        const compBadge = document.getElementById('comparison-version-badge');
+        if (compBadge) compBadge.textContent = tag;
+
+        if (releaseState.dmgSize) {
+          const mb = (releaseState.dmgSize / (1024 * 1024)).toFixed(2);
+          const specSize = document.getElementById('spec-footprint-size');
+          if (specSize) {
+            specSize.textContent = isId ? `${mb} MB (.dmg) • ~30 MB di disk` : `${mb} MB (.dmg) • ~30 MB on disk`;
+          }
+          const compDmg = document.getElementById('comparison-dmg-size');
+          if (compDmg) {
+            compDmg.textContent = isId ? `${mb} MB (Sangat Ringan)` : `${mb} MB (Featherlight)`;
+          }
+        }
       } else {
         // --- DEVELOPMENT / UNRELEASED STATE ---
         // Hero Status Badge
@@ -291,6 +307,73 @@ const tId = translations.id.hero;
       }
     }
 
+    function processReleases(releases) {
+      if (!Array.isArray(releases) || releases.length === 0) return;
+
+      function parseSemVer(tag) {
+        if (!tag) return [0, 0, 0];
+        const clean = String(tag).replace(/^v\.?/i, '');
+        const parts = clean.split('.').map(n => parseInt(n, 10) || 0);
+        while (parts.length < 3) parts.push(0);
+        return parts;
+      }
+
+      function normalizeTag(tag) {
+        if (!tag) return 'v1.0.1';
+        return String(tag).replace(/^v\.(\d)/i, 'v$1');
+      }
+
+      const sortedReleases = [...releases].filter(r => !r.draft).sort((a, b) => {
+        const vA = parseSemVer(a.tag_name);
+        const vB = parseSemVer(b.tag_name);
+        for (let i = 0; i < 3; i++) {
+          if (vB[i] !== vA[i]) return vB[i] - vA[i];
+        }
+        return new Date(b.published_at || 0).getTime() - new Date(a.published_at || 0).getTime();
+      });
+
+      let validRelease = null;
+      let validDmgAsset = null;
+      let totalDownloads = 0;
+
+      for (const rel of releases) {
+        if (rel.assets && Array.isArray(rel.assets)) {
+          for (const asset of rel.assets) {
+            totalDownloads += (asset.download_count || 0);
+          }
+        }
+      }
+
+      for (const rel of sortedReleases) {
+        if (rel.assets && Array.isArray(rel.assets)) {
+          const dmg = rel.assets.find(asset => asset.name && asset.name.toLowerCase().endsWith('.dmg'));
+          if (dmg) {
+            validDmgAsset = dmg;
+            validRelease = rel;
+            break;
+          }
+        }
+      }
+
+      if (validRelease && validDmgAsset) {
+        releaseState.isReleased = true;
+        releaseState.tag = normalizeTag(validRelease.tag_name) || 'v1.0.1';
+        releaseState.dmgUrl = validDmgAsset.browser_download_url;
+        releaseState.dmgSize = validDmgAsset.size;
+        releaseState.releasePageUrl = validRelease.html_url;
+        releaseState.downloadCount = totalDownloads;
+        updateDOM();
+      }
+    }
+
+    // Try reading cached releases from sessionStorage for instant zero-latency render
+    try {
+      const stored = sessionStorage.getItem('notchify_github_releases');
+      if (stored) {
+        processReleases(JSON.parse(stored));
+      }
+    } catch (_) {}
+
     // Fetch GitHub Releases API
     fetch(API_URL)
       .then(res => {
@@ -298,41 +381,15 @@ const tId = translations.id.hero;
         return res.json();
       })
       .then(releases => {
-        if (!Array.isArray(releases) || releases.length === 0) {
-          // No releases published yet -> Stay in development state
-          return;
-        }
-
-        // Find latest published (non-draft) release with a .dmg asset
-        let validRelease = null;
-        let validDmgAsset = null;
-        let totalDownloads = 0;
-
-        for (const rel of releases) {
-          if (rel.draft) continue;
-          if (rel.assets && Array.isArray(rel.assets)) {
-            for (const asset of rel.assets) {
-              totalDownloads += (asset.download_count || 0);
-              if (!validDmgAsset && asset.name && asset.name.toLowerCase().endsWith('.dmg')) {
-                validDmgAsset = asset;
-                validRelease = rel;
-              }
-            }
-          }
-        }
-
-        if (validRelease && validDmgAsset) {
-          releaseState.isReleased = true;
-          releaseState.tag = validRelease.tag_name || 'v1.0.0';
-          releaseState.dmgUrl = validDmgAsset.browser_download_url;
-          releaseState.releasePageUrl = validRelease.html_url;
-          releaseState.downloadCount = totalDownloads;
-          updateDOM();
+        if (Array.isArray(releases) && releases.length > 0) {
+          try {
+            sessionStorage.setItem('notchify_github_releases', JSON.stringify(releases));
+          } catch (_) {}
+          processReleases(releases);
         }
       })
       .catch(err => {
-        // Network error / rate limit / 404: stay safe in Development state
-        console.log('GitHub releases fetch: Project remains in Development state.', err);
+        console.log('GitHub releases fetch info:', err.message);
       });
 
     // Fetch GitHub Repo Stargazers
@@ -358,10 +415,11 @@ const tId = translations.id.hero;
     updateDOM();
 
     // Testing hooks for browser console preview
-    window.__previewReleaseMode = function(testTag = 'v1.0.0', testDmgUrl = 'https://github.com/Kharisdestianmaulana-hub/notchify/releases/latest/download/Notchify.dmg') {
+    window.__previewReleaseMode = function(testTag = 'v1.0.1', testDmgUrl = 'https://github.com/Kharisdestianmaulana-hub/notchify/releases/latest/download/Notchify.dmg', testSize = 8913276) {
       releaseState.isReleased = true;
       releaseState.tag = testTag;
       releaseState.dmgUrl = testDmgUrl;
+      releaseState.dmgSize = testSize;
       releaseState.downloadCount = 142;
       updateDOM();
       console.log(`%c[Notchify] Switched to Public Release Preview mode (${testTag})!`, 'color: #30D158; font-weight: bold;');

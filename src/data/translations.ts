@@ -131,10 +131,6 @@ export interface Translations {
     viewOnGithub: string;
     releaseNotesTitle: string;
     noPreviousReleases: string;
-    features: Array<{
-      category: string;
-      desc: string;
-    }>;
   };
   comparison: {
     badge: string;
@@ -396,13 +392,13 @@ export const translations: Record<'en' | 'id', Translations> = {
       specsTitle: "System Specifications",
       minOs: "macOS 12.0 Monterey to Latest",
       arch: "Universal (Apple Silicon & Intel)",
-      size: "8.45 MB (.dmg) • ~30 MB on disk",
+      size: "8.50 MB (.dmg) • ~30 MB on disk",
       license: "MIT Open Source",
       previousVersionsTitle: "Looking for earlier builds?",
       previousVersionsSubtitle: "Access previous stable releases and installation packages.",
       viewChangelogBtn: "Explore Changelog",
       allReleasesGithub: "GitHub Releases Archive",
-      noPreviousYet: "v1.0.0 is the initial release. Previous versions will automatically appear here as new updates are published.",
+      noPreviousYet: "Previous versions will automatically appear here as new updates are published.",
     },
     changelog: {
       badge: "Release Notes",
@@ -413,41 +409,7 @@ export const translations: Record<'en' | 'id', Translations> = {
       downloadDmg: "Download .dmg",
       viewOnGithub: "View Release on GitHub",
       releaseNotesTitle: "Release Highlights",
-      noPreviousReleases: "v1.0.0 is the initial public release. Previous versions will automatically be listed here as new updates are published.",
-      features: [
-        {
-          category: "Media & Synced Lyrics",
-          desc: "Universal controls for Spotify, Apple Music, and web players with karaoke-style synchronized lyrics (<0.4s) and dynamic ambient art glow."
-        },
-        {
-          category: "Smart Clipboard Manager",
-          desc: "Live text search, snippet pinning, and automatic data detection for colors, web URLs, emails, and currencies."
-        },
-        {
-          category: "Drop Zone Shelf",
-          desc: "Drag-and-drop holding shelf near the notch with native macOS AirDrop, Mail, and Messages sharing."
-        },
-        {
-          category: "Focus Pomodoro Timer",
-          desc: "Customizable focus/break intervals, detached dynamic pill overlay, and native macOS audio chime notifications."
-        },
-        {
-          category: "Camera Mirror & HD Recorder",
-          desc: "Instant pre-meeting camera preview with warm virtual ring light and in-tab HD video recording."
-        },
-        {
-          category: "System & Network Monitor",
-          desc: "Real-time CPU, RAM, battery telemetry, and a high-precision live download/upload network speedometer."
-        },
-        {
-          category: "Interactive Notch Companion",
-          desc: "Expressive dynamic mascot with 120 BPM head-bob music rhythm and activity-aware idle detection."
-        },
-        {
-          category: "Universal 2 Architecture",
-          desc: "Natively compiled for Apple Silicon (M1/M2/M3/M4) and Intel Macs with a featherlight footprint (~8.45 MB .dmg, ~30 MB on disk)."
-        }
-      ]
+      noPreviousReleases: "Previous versions will automatically be listed here as new updates are published.",
     },
     comparison: {
       badge: "Engineering Benchmark",
@@ -468,7 +430,7 @@ export const translations: Record<'en' | 'id', Translations> = {
         },
         {
           metric: "Installer Download (.dmg)",
-          notchify: "8.45 MB (Featherlight)",
+          notchify: "8.50 MB (Featherlight)",
           paid: "30 MB – 80 MB",
           electron: "150 MB – 300 MB+"
         },
@@ -751,13 +713,13 @@ export const translations: Record<'en' | 'id', Translations> = {
       specsTitle: "Spesifikasi Sistem",
       minOs: "macOS 12.0 Monterey hingga Terbaru",
       arch: "Universal (Apple Silicon & Intel)",
-      size: "8,45 MB (.dmg) • ~30 MB di disk",
+      size: "8,50 MB (.dmg) • ~30 MB di disk",
       license: "Lisensi MIT",
       previousVersionsTitle: "Mencari versi rilis sebelumnya?",
       previousVersionsSubtitle: "Akses versi stabil sebelumnya dan arsip paket instalasi resmi.",
       viewChangelogBtn: "Lihat Catatan Rilis",
       allReleasesGithub: "Arsip Rilis GitHub",
-      noPreviousYet: "v1.0.0 adalah rilis perdana. Versi sebelumnya akan otomatis tertera di sini saat rilis berikutnya diluncurkan.",
+      noPreviousYet: "Versi sebelumnya akan otomatis tertera di sini saat rilis berikutnya diluncurkan.",
     },
     changelog: {
       badge: "Catatan Rilis",
@@ -768,41 +730,7 @@ export const translations: Record<'en' | 'id', Translations> = {
       downloadDmg: "Unduh .dmg",
       viewOnGithub: "Lihat Rilis di GitHub",
       releaseNotesTitle: "Sorotan Rilis",
-      noPreviousReleases: "v1.0.0 adalah rilis publik perdana. Versi sebelumnya akan otomatis tertera di sini saat rilis pembaruan berikutnya diterbitkan.",
-      features: [
-        {
-          category: "Media & Lirik Tersinkron",
-          desc: "Kontrol universal untuk Spotify, Apple Music, dan browser dengan lirik karaoke scrolling super cepat (<0,4 detik) dan ambient glow."
-        },
-        {
-          category: "Smart Clipboard Manager",
-          desc: "Pencarian teks instan, pin klip penting, dan deteksi otomatis untuk kode warna, URL web, email, dan mata uang."
-        },
-        {
-          category: "Drop Zone Shelf",
-          desc: "Area penampung seret & lepas berkas di dekat notch dengan integrasi native macOS AirDrop, Mail, dan Pesan."
-        },
-        {
-          category: "Focus Pomodoro Timer",
-          desc: "Interval fokus & istirahat kustom, overlay kapsul melayang yang dinamis, serta notifikasi suara native macOS."
-        },
-        {
-          category: "Camera Mirror & Perekam HD",
-          desc: "Pratinjau kamera instan sebelum rapat dengan virtual ring light hangat dan perekaman video HD langsung dari tab."
-        },
-        {
-          category: "System & Network Monitor",
-          desc: "Telemetri CPU, RAM, dan baterai real-time, dilengkapi speedometer presisi tinggi untuk mengukur kecepatan unduh & unggah."
-        },
-        {
-          category: "Maskot Notch Interaktif",
-          desc: "Karakter dinamis responsif dengan goyangan kepala mengikuti ritme musik 120 BPM serta deteksi otomatis saat Mac idle."
-        },
-        {
-          category: "Universal 2 Architecture",
-          desc: "Kompilasi native untuk Mac Apple Silicon (M1/M2/M3/M4) dan prosesor Intel dengan ukuran sangat ringan (~8,45 MB .dmg, ~30 MB di disk)."
-        }
-      ]
+      noPreviousReleases: "Versi sebelumnya akan otomatis tertera di sini saat rilis pembaruan berikutnya diterbitkan.",
     },
     comparison: {
       badge: "Tolok Ukur Rekayasa",
@@ -823,7 +751,7 @@ export const translations: Record<'en' | 'id', Translations> = {
         },
         {
           metric: "Ukuran Installer (.dmg)",
-          notchify: "8,45 MB (Sangat Ringan)",
+          notchify: "8,50 MB (Sangat Ringan)",
           paid: "30 MB – 80 MB",
           electron: "150 MB – 300 MB+"
         },

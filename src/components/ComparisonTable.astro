@@ -39,8 +39,8 @@ const tId = translations.id.comparison;
                 <div class="flex items-center justify-between gap-2">
                   <div class="flex items-center gap-2">
                     <span class="text-base sm:text-lg font-bold text-white tracking-tight">Notchify</span>
-                    <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-emerald-400/10 text-emerald-300 border border-emerald-400/25">
-                      v1.0.0
+                    <span id="comparison-version-badge" class="px-2 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-emerald-400/10 text-emerald-300 border border-emerald-400/25">
+                      <span class="inline-block w-8 h-2.5 rounded bg-emerald-400/30 animate-pulse align-middle"></span>
                     </span>
                   </div>
                   <span class="text-[10px] font-mono uppercase text-emerald-400 font-medium hidden sm:inline-block" data-en={tEn.colNotchifyTag} data-id={tId.colNotchifyTag}>
@@ -78,7 +78,7 @@ const tId = translations.id.comparison;
                       <svg class="w-4 h-4 text-emerald-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span data-en={row.notchify} data-id={idRow.notchify}>{row.notchify}</span>
+                      <span id={idx === 1 ? 'comparison-dmg-size' : undefined} data-en={row.notchify} data-id={idRow.notchify}>{row.notchify}</span>
                     </div>
                   </td>
 

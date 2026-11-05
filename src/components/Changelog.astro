@@ -29,19 +29,19 @@ const tId = translations.id.changelog;
         <div class="flex flex-col gap-2">
           <div class="flex flex-wrap items-center gap-3">
             <span id="latest-release-tag" class="text-2xl sm:text-3xl font-bold font-mono text-white tracking-tight">
-              v1.0.0
+              <span class="inline-block w-20 h-7 rounded-lg bg-white/10 animate-pulse align-middle"></span>
             </span>
             <span id="latest-release-badge" class="px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center gap-1.5">
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
               <span data-en={tEn.latestBadge} data-id={tId.latestBadge}>{tEn.latestBadge}</span>
             </span>
-            <span id="latest-release-asset-size" class="text-xs font-mono text-neutral-400 bg-white/[0.04] px-2.5 py-0.5 rounded-full border border-white/[0.06]" data-en="8.45 MB (.dmg) • ~30 MB on disk" data-id="8,45 MB (.dmg) • ~30 MB di disk">
-              8.45 MB (.dmg) • ~30 MB on disk
+            <span id="latest-release-asset-size" class="text-xs font-mono text-neutral-400 bg-white/[0.04] px-2.5 py-0.5 rounded-full border border-white/[0.06]">
+              <span class="inline-block w-24 h-3.5 rounded bg-white/10 animate-pulse align-middle"></span>
             </span>
           </div>
           <div class="flex items-center gap-2 text-xs font-mono text-neutral-500">
-            <span id="latest-release-date" data-en="Released on October 25, 2026" data-id="Dirilis pada 25 Oktober 2026">
-              Released on October 25, 2026
+            <span id="latest-release-date">
+              <span class="inline-block w-28 h-3 rounded bg-white/10 animate-pulse align-middle"></span>
             </span>
             <span>•</span>
             <span data-en="Universal Binary (Apple Silicon & Intel)" data-id="Universal Binary (Apple Silicon & Intel)">
@@ -54,7 +54,7 @@ const tId = translations.id.changelog;
         <div class="flex flex-wrap items-center gap-3">
           <a
             id="latest-release-download"
-            href="https://github.com/Kharisdestianmaulana-hub/notchify/releases/download/v1.0.0/Notchify.dmg"
+            href="https://github.com/Kharisdestianmaulana-hub/notchify/releases/latest"
             class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-medium bg-white text-neutral-950 hover:bg-neutral-200 transition-colors shadow-sm"
           >
             <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -65,7 +65,7 @@ const tId = translations.id.changelog;
 
           <a
             id="latest-release-gh-link"
-            href="https://github.com/Kharisdestianmaulana-hub/notchify/releases/tag/v1.0.0"
+            href="https://github.com/Kharisdestianmaulana-hub/notchify/releases"
             target="_blank"
             rel="noopener noreferrer"
             class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs font-medium bg-white/[0.04] border border-white/10 text-neutral-300 hover:text-white hover:border-white/20 transition-all"
@@ -78,27 +78,36 @@ const tId = translations.id.changelog;
         </div>
       </div>
 
-      <!-- Release Highlights Grid (Pre-rendered for v1.0.0) -->
+      <!-- Release Highlights Grid (Dynamically Populated from GitHub Release Notes) -->
       <div class="pt-8">
         <h3 class="text-xs uppercase font-mono tracking-wider text-neutral-400 mb-6 flex items-center gap-2" data-en={tEn.releaseNotesTitle} data-id={tId.releaseNotesTitle}>
           <span>{tEn.releaseNotesTitle}</span>
           <span class="w-1.5 h-1.5 rounded-full bg-white/20"></span>
-          <span class="text-neutral-500 font-normal">v1.0.0 Official Launch</span>
+          <span id="latest-release-highlights-subtitle" class="text-neutral-500 font-normal"></span>
         </h3>
 
+        <!-- Dynamic Grid with Skeleton Loaders -->
         <div id="latest-release-features-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {tEn.features.map((feat, idx) => (
-            <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-white/[0.12] transition-colors flex flex-col justify-between">
-              <div>
-                <span class="text-xs font-semibold text-white tracking-tight block mb-1.5" data-en={feat.category} data-id={tId.features[idx].category}>
-                  {feat.category}
-                </span>
-                <p class="text-[12px] text-neutral-400 leading-relaxed font-normal" data-en={feat.desc} data-id={tId.features[idx].desc}>
-                  {feat.desc}
-                </p>
-              </div>
-            </div>
-          ))}
+          <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/[0.06] animate-pulse h-28 space-y-2.5">
+            <div class="h-4 w-2/3 bg-white/10 rounded"></div>
+            <div class="h-3 w-full bg-white/5 rounded"></div>
+            <div class="h-3 w-4/5 bg-white/5 rounded"></div>
+          </div>
+          <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/[0.06] animate-pulse h-28 space-y-2.5">
+            <div class="h-4 w-2/3 bg-white/10 rounded"></div>
+            <div class="h-3 w-full bg-white/5 rounded"></div>
+            <div class="h-3 w-4/5 bg-white/5 rounded"></div>
+          </div>
+          <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/[0.06] animate-pulse h-28 space-y-2.5">
+            <div class="h-4 w-2/3 bg-white/10 rounded"></div>
+            <div class="h-3 w-full bg-white/5 rounded"></div>
+            <div class="h-3 w-4/5 bg-white/5 rounded"></div>
+          </div>
+          <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/[0.06] animate-pulse h-28 space-y-2.5">
+            <div class="h-4 w-2/3 bg-white/10 rounded"></div>
+            <div class="h-3 w-full bg-white/5 rounded"></div>
+            <div class="h-3 w-4/5 bg-white/5 rounded"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -130,11 +139,8 @@ const tId = translations.id.changelog;
 
       <!-- Container for dynamically rendered previous releases -->
       <div id="previous-releases-list" class="space-y-4">
-        <!-- Default State when only 1 release exists -->
-        <div id="no-previous-placeholder" class="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.04] text-center">
-          <p class="text-xs text-neutral-400 font-normal leading-relaxed" data-en={tEn.noPreviousReleases} data-id={tId.noPreviousReleases}>
-            {tEn.noPreviousReleases}
-          </p>
+        <div id="no-previous-placeholder" class="p-5 rounded-2xl bg-white/[0.02] border border-white/[0.06] text-center text-xs text-neutral-500 font-mono" data-en={tEn.noPreviousReleases} data-id={tId.noPreviousReleases}>
+          {tEn.noPreviousReleases}
         </div>
       </div>
     </div>
@@ -164,14 +170,129 @@ const tId = translations.id.changelog;
       return `${mb} MB`;
     }
 
-    function renderReleases(releases) {
+    function parseSemVer(tag) {
+      if (!tag) return [0, 0, 0];
+      const clean = String(tag).replace(/^v\.?/i, '');
+      const parts = clean.split('.').map(n => parseInt(n, 10) || 0);
+      while (parts.length < 3) parts.push(0);
+      return parts;
+    }
+
+    function normalizeTag(tag) {
+      if (!tag) return 'v1.0.1';
+      return String(tag).replace(/^v\.(\d)/i, 'v$1');
+    }
+
+    function formatMarkdownInline(text) {
+      if (!text) return '';
+      return text
+        .replace(/\*\*(.*?)\*\*/g, '<strong class="text-white font-medium">$1</strong>')
+        .replace(/\*(.*?)\*/g, '<em class="text-neutral-300">$1</em>');
+    }
+
+    function extractLanguageSection(body, lang) {
+      if (!body) return '';
+      const isId = lang === 'id';
+      // Normalize CRLF to LF
+      const cleanBody = body.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+      // Strip HTML anchor tags (<a name="..."></a>) so they don't break string splitting
+      const text = cleanBody.replace(/<a\s+name=["'][^"']*["']>\s*<\/a>/gi, '');
+
+      const idHeaderRegex = /##\s+[^\n]*(?:Bahasa Indonesia|Indonesia|🇮🇩)[^\n]*/i;
+      const enHeaderRegex = /##\s+[^\n]*(?:English|Inggris|🇬🇧|🇺🇸)[^\n]*/i;
+
+      const idMatch = text.match(idHeaderRegex);
+      const enMatch = text.match(enHeaderRegex);
+
+      if (isId) {
+        if (idMatch && idMatch.index !== undefined) {
+          return text.slice(idMatch.index + idMatch[0].length);
+        }
+      } else {
+        // English
+        if (enMatch && enMatch.index !== undefined) {
+          const enStart = enMatch.index + enMatch[0].length;
+          if (idMatch && idMatch.index !== undefined && idMatch.index > enStart) {
+            return text.slice(enStart, idMatch.index);
+          }
+          return text.slice(enStart);
+        }
+      }
+      return text;
+    }
+
+    function parseReleaseHighlights(body, lang) {
+      if (!body) return [];
+      const section = extractLanguageSection(body, lang);
+
+      // Strategy A: Headings (#### or ###)
+      const headingChunks = section.split(/\n(?=#{3,4}\s+)/);
+      const items = [];
+
+      for (const chunk of headingChunks) {
+        const trimmed = chunk.trim();
+        if (!trimmed.startsWith('###') && !trimmed.startsWith('####')) continue;
+
+        const lines = trimmed.split('\n');
+        const heading = lines[0].replace(/^#{3,4}\s+/, '').trim();
+
+        // Skip section meta headers
+        if (/^(what\x27s new|apa yang baru|catatan rilis|release notes|sorotan|highlights|installation|instalasi)/i.test(heading)) continue;
+
+        const bullets = lines.slice(1)
+          .map(l => l.trim())
+          .filter(l => l.startsWith('*') || l.startsWith('-'))
+          .map(l => l.replace(/^[\*\-]\s+/, '').trim())
+          .filter(Boolean);
+
+        let desc = '';
+        if (bullets.length > 0) {
+          desc = bullets.slice(0, 3).join(' ');
+        } else {
+          desc = lines.slice(1).map(l => l.trim()).filter(l => l && !l.startsWith('#')).join(' ');
+        }
+
+        if (heading && desc) {
+          items.push({ category: heading, desc });
+        }
+      }
+
+      if (items.length > 0) return items;
+
+      // Strategy B: Top-level bullets (* **Title:** Desc)
+      const bulletLines = section.split('\n')
+        .map(l => l.trim())
+        .filter(l => l.startsWith('*') || l.startsWith('-'));
+
+      for (const line of bulletLines) {
+        const clean = line.replace(/^[\*\-]\s+/, '');
+        const match = clean.match(/^\*\*([^*]+)\*\*[:\-]?\s*(.*)$/);
+        if (match) {
+          items.push({ category: match[1].trim(), desc: match[2].trim() || match[1].trim() });
+        } else if (clean.length > 10) {
+          items.push({ category: clean.slice(0, 35) + '...', desc: clean });
+        }
+      }
+
+      return items;
+    }
+
+    function renderReleases(releases, overrideLang) {
       if (!Array.isArray(releases) || releases.length === 0) return;
 
-      const lang = document.documentElement.getAttribute('data-lang') || 'en';
+      const lang = overrideLang || document.documentElement.getAttribute('data-lang') || 'en';
       const isId = lang === 'id';
 
-      // Filter non-draft releases
-      const published = releases.filter(r => !r.draft);
+      // Sort non-draft releases by SemVer descending, fallback to published_at descending
+      const published = [...releases].filter(r => !r.draft).sort((a, b) => {
+        const vA = parseSemVer(a.tag_name);
+        const vB = parseSemVer(b.tag_name);
+        for (let i = 0; i < 3; i++) {
+          if (vB[i] !== vA[i]) return vB[i] - vA[i];
+        }
+        return new Date(b.published_at || 0).getTime() - new Date(a.published_at || 0).getTime();
+      });
+
       if (published.length === 0) return;
 
       // 1. Update Latest Release Header with live API data
@@ -181,9 +302,19 @@ const tId = translations.id.changelog;
       const dlBtn = document.getElementById('latest-release-download');
       const ghLink = document.getElementById('latest-release-gh-link');
       const sizeEl = document.getElementById('latest-release-asset-size');
+      const subTitleEl = document.getElementById('latest-release-highlights-subtitle');
+      const compBadge = document.getElementById('comparison-version-badge');
+      const compDmg = document.getElementById('comparison-dmg-size');
+      const specSize = document.getElementById('spec-footprint-size');
+
+      const latestTag = normalizeTag(latest.tag_name);
 
       if (tagEl && latest.tag_name) {
-        tagEl.textContent = latest.tag_name;
+        tagEl.textContent = latestTag;
+      }
+
+      if (compBadge) {
+        compBadge.textContent = latestTag;
       }
 
       if (dateEl && latest.published_at) {
@@ -194,15 +325,56 @@ const tId = translations.id.changelog;
         ghLink.setAttribute('href', latest.html_url);
       }
 
+      if (subTitleEl && latest.name) {
+        subTitleEl.textContent = latest.name;
+      }
+
       const dmgAsset = latest.assets ? latest.assets.find(a => a.name && a.name.toLowerCase().endsWith('.dmg')) : null;
-      if (dmgAsset && dlBtn) {
-        dlBtn.setAttribute('href', dmgAsset.browser_download_url);
+      if (dmgAsset) {
+        const mb = (dmgAsset.size / (1024 * 1024)).toFixed(2);
+
+        if (dlBtn) {
+          dlBtn.setAttribute('href', dmgAsset.browser_download_url);
+        }
+
         if (sizeEl) {
-          sizeEl.textContent = isId ? '8,45 MB (.dmg) • ~30 MB di disk' : '8.45 MB (.dmg) • ~30 MB on disk';
+          sizeEl.textContent = isId ? `${mb} MB (.dmg) • ~30 MB di disk` : `${mb} MB (.dmg) • ~30 MB on disk`;
+        }
+
+        if (specSize) {
+          specSize.textContent = isId ? `${mb} MB (.dmg) • ~30 MB di disk` : `${mb} MB (.dmg) • ~30 MB on disk`;
+        }
+
+        if (compDmg) {
+          compDmg.textContent = isId ? `${mb} MB (Sangat Ringan)` : `${mb} MB (Featherlight)`;
         }
       }
 
-      // 2. Render Previous Releases (releases.slice(1))
+      // 2. Render Real Release Highlights Cards from GitHub Release Body
+      const featuresGrid = document.getElementById('latest-release-features-grid');
+      if (featuresGrid && latest.body) {
+        const parsedFeatures = parseReleaseHighlights(latest.body, lang);
+        if (parsedFeatures && parsedFeatures.length > 0) {
+          featuresGrid.innerHTML = '';
+          parsedFeatures.forEach(feat => {
+            const card = document.createElement('div');
+            card.className = 'p-4 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-white/[0.12] transition-colors flex flex-col justify-between';
+            card.innerHTML = `
+              <div>
+                <span class="text-xs font-semibold text-white tracking-tight block mb-1.5">
+                  ${feat.category}
+                </span>
+                <p class="text-[12px] text-neutral-400 leading-relaxed font-normal">
+                  ${formatMarkdownInline(feat.desc)}
+                </p>
+              </div>
+            `;
+            featuresGrid.appendChild(card);
+          });
+        }
+      }
+
+      // 3. Render Previous Releases (published.slice(1))
       const prevContainer = document.getElementById('previous-releases-list');
       const noPrevPlaceholder = document.getElementById('no-previous-placeholder');
 
@@ -231,7 +403,7 @@ const tId = translations.id.changelog;
             card.innerHTML = `
               <div class="flex flex-col gap-1.5">
                 <div class="flex items-center gap-2.5 flex-wrap">
-                  <span class="text-base font-bold font-mono text-white">${rel.tag_name || 'v1.x'}</span>
+                  <span class="text-base font-bold font-mono text-white">${normalizeTag(rel.tag_name)}</span>
                   ${sizeBadge}
                   <span class="text-xs font-mono text-neutral-500">${formatDate(rel.published_at, lang)}</span>
                   ${dlCount}
@@ -268,13 +440,13 @@ const tId = translations.id.changelog;
         }
       }
 
-      // 3. Populate Previous Releases inside DownloadSection.astro
+      // 4. Populate Previous Releases inside DownloadSection.astro
       const dlSecContainer = document.getElementById('download-previous-releases');
       if (dlSecContainer) {
         if (olderReleases.length === 0) {
           dlSecContainer.innerHTML = `
             <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/[0.06] text-center text-xs text-neutral-500 font-mono">
-              ${isId ? 'v1.0.0 adalah rilis perdana. Versi rilis lama akan otomatis tertera di sini saat rilis berikutnya diluncurkan.' : 'v1.0.0 is the initial release. Older versions will automatically appear here once newer builds are published.'}
+              ${isId ? 'Versi sebelumnya akan otomatis tertera di sini saat rilis berikutnya diluncurkan.' : 'Previous versions will automatically appear here once newer builds are published.'}
             </div>
           `;
         } else {
@@ -285,11 +457,11 @@ const tId = translations.id.changelog;
             row.className = 'p-3 rounded-xl bg-white/[0.02] border border-white/[0.06] flex items-center justify-between gap-3 text-left';
             row.innerHTML = `
               <div class="flex items-center gap-2">
-                <span class="text-xs font-mono font-bold text-white">${rel.tag_name}</span>
+                <span class="text-xs font-mono font-bold text-white">${normalizeTag(rel.tag_name)}</span>
                 <span class="text-[11px] font-mono text-neutral-500">${formatDate(rel.published_at, lang)}</span>
               </div>
               <div class="flex items-center gap-2">
-                ${relDmg ? `<a href="${relDmg.browser_download_url}" class="px-2.5 py-1 rounded-full text-[11px] font-medium bg-white/[0.08] hover:bg-white text-neutral-300 hover:text-black border border-white/10 transition-colors">Unduh .dmg</a>` : ''}
+                ${relDmg ? `<a href="${relDmg.browser_download_url}" class="px-2.5 py-1 rounded-full text-[11px] font-medium bg-white/[0.08] hover:bg-white text-neutral-300 hover:text-black border border-white/10 transition-colors">${isId ? 'Unduh .dmg' : 'Download .dmg'}</a>` : ''}
               </div>
             `;
             dlSecContainer.appendChild(row);
@@ -298,8 +470,15 @@ const tId = translations.id.changelog;
       }
     }
 
-    // Cache releases locally to avoid duplicate network calls
+    // Cache releases locally to avoid duplicate network calls & API rate limits
     let cachedReleases = null;
+    try {
+      const stored = sessionStorage.getItem('notchify_github_releases');
+      if (stored) {
+        cachedReleases = JSON.parse(stored);
+        renderReleases(cachedReleases);
+      }
+    } catch (_) {}
 
     fetch(API_URL)
       .then(res => {
@@ -307,17 +486,23 @@ const tId = translations.id.changelog;
         return res.json();
       })
       .then(releases => {
-        cachedReleases = releases;
-        renderReleases(releases);
+        if (Array.isArray(releases) && releases.length > 0) {
+          cachedReleases = releases;
+          try {
+            sessionStorage.setItem('notchify_github_releases', JSON.stringify(releases));
+          } catch (_) {}
+          renderReleases(releases);
+        }
       })
       .catch(err => {
         console.log('GitHub releases fetcher info:', err.message);
       });
 
-    // Re-render strings when language changes
-    window.addEventListener('langchange', () => {
+    // Re-render cards and strings when language changes
+    window.addEventListener('langchange', (evt) => {
+      const newLang = (evt && evt.detail && evt.detail.lang) || document.documentElement.getAttribute('data-lang') || 'en';
       if (cachedReleases) {
-        renderReleases(cachedReleases);
+        renderReleases(cachedReleases, newLang);
       }
     });
 
