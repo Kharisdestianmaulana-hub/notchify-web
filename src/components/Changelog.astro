@@ -119,13 +119,18 @@ const dmgSizeMb = latestDmg ? (latestDmg.size / (1024 * 1024)).toFixed(2) : '8.5
               {dmgSizeMb} MB (.dmg) • ~30 MB on disk
             </span>
           </div>
-          <div class="flex items-center gap-2 text-xs font-mono text-neutral-500">
+          <div class="flex items-center gap-2 text-xs font-mono text-neutral-500 flex-wrap">
             <span id="latest-release-date" data-en="Released on November 5, 2026" data-id="Dirilis pada 5 November 2026">
               Released on November 5, 2026
             </span>
             <span>•</span>
             <span data-en="Universal Binary (Apple Silicon & Intel)" data-id="Universal Binary (Apple Silicon & Intel)">
               Universal Binary (Apple Silicon & Intel)
+            </span>
+            <span>•</span>
+            <span id="latest-release-dl-stat" class="inline-flex items-center gap-1 text-neutral-400">
+              <span id="latest-release-dl-count">{latestDmg && latestDmg.download_count !== undefined ? latestDmg.download_count.toLocaleString() : 0}</span>
+              <span id="latest-release-dl-label" data-en="downloads" data-id="unduhan">downloads</span>
             </span>
           </div>
         </div>
@@ -469,6 +474,31 @@ const dmgSizeMb = latestDmg ? (latestDmg.size / (1024 * 1024)).toFixed(2) : '8.5
         }
       }
 
+      // Update latest release download count stat in Changelog
+      const latestDlCount = dmgAsset && dmgAsset.download_count !== undefined ? dmgAsset.download_count : 0;
+      const latestDlCountEl = document.getElementById('latest-release-dl-count');
+      const latestDlLabelEl = document.getElementById('latest-release-dl-label');
+      if (latestDlCountEl) {
+        latestDlCountEl.textContent = latestDlCount.toLocaleString();
+      }
+      if (latestDlLabelEl) {
+        latestDlLabelEl.textContent = isId ? 'unduhan' : 'downloads';
+      }
+
+      // Update latest release download count stat in DownloadSection
+      const secLatestTag = document.getElementById('section-latest-tag-stat');
+      const secLatestDlCount = document.getElementById('section-latest-dl-count');
+      const secLatestDlLabel = document.getElementById('section-latest-dl-label');
+      if (secLatestTag) {
+        secLatestTag.textContent = latestTag;
+      }
+      if (secLatestDlCount) {
+        secLatestDlCount.textContent = latestDlCount.toLocaleString();
+      }
+      if (secLatestDlLabel) {
+        secLatestDlLabel.textContent = isId ? 'unduhan' : 'downloads';
+      }
+
       // Render Release Highlights Cards
       const featuresGrid = document.getElementById('latest-release-features-grid');
       if (featuresGrid && latest.body) {
@@ -509,7 +539,8 @@ const dmgSizeMb = latestDmg ? (latestDmg.size / (1024 * 1024)).toFixed(2) : '8.5
             const card = document.createElement('div');
             card.className = 'p-5 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-white/[0.12] transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-4';
 
-            const dlCount = relDmg && relDmg.download_count ? `<span class="text-neutral-500">• ${relDmg.download_count.toLocaleString()} ${isId ? 'unduhan' : 'downloads'}</span>` : '';
+            const relDl = relDmg && relDmg.download_count !== undefined ? relDmg.download_count : 0;
+            const dlCount = `<span class="text-neutral-500">• ${relDl.toLocaleString()} ${isId ? 'unduhan' : 'downloads'}</span>`;
             const sizeBadge = relDmg && relDmg.size ? `<span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/[0.04] text-neutral-400 border border-white/[0.06]">${formatBytes(relDmg.size)}</span>` : '';
 
             card.innerHTML = `
@@ -565,12 +596,16 @@ const dmgSizeMb = latestDmg ? (latestDmg.size / (1024 * 1024)).toFixed(2) : '8.5
           dlSecContainer.innerHTML = '';
           olderReleases.slice(0, 3).forEach(rel => {
             const relDmg = rel.assets ? rel.assets.find(a => a.name && a.name.toLowerCase().endsWith('.dmg')) : null;
+            const relDl = relDmg && relDmg.download_count !== undefined ? relDmg.download_count : 0;
+            const relDlCount = `<span class="text-[11px] font-mono text-neutral-400">• ${relDl.toLocaleString()} ${isId ? 'unduhan' : 'downloads'}</span>`;
+
             const row = document.createElement('div');
             row.className = 'p-3 rounded-xl bg-white/[0.02] border border-white/[0.06] flex items-center justify-between gap-3 text-left';
             row.innerHTML = `
-              <div class="flex items-center gap-2">
+              <div class="flex items-center gap-2 flex-wrap">
                 <span class="text-xs font-mono font-bold text-white">${normalizeTag(rel.tag_name)}</span>
                 <span class="text-[11px] font-mono text-neutral-500">${formatDate(rel.published_at, lang)}</span>
+                ${relDlCount}
               </div>
               <div class="flex items-center gap-2">
                 ${relDmg ? `<a href="${relDmg.browser_download_url}" class="px-2.5 py-1 rounded-full text-[11px] font-medium bg-white/[0.08] hover:bg-white text-neutral-300 hover:text-black border border-white/10 transition-colors">${isId ? 'Unduh .dmg' : 'Download .dmg'}</a>` : ''}
